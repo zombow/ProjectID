@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ProjectID",
+			"Path": "C:\\Users\\78h\\OneDrive\\Documents\\Unreal Projects\\ProjectID\\ProjectID\\Source\\ProjectID.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ProjectIDEditor",
+			"Path": "C:\\Users\\78h\\OneDrive\\Documents\\Unreal Projects\\ProjectID\\ProjectID\\Source\\ProjectIDEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\inc\\projectid\\tp_weaponcomponent.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\projectideditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\development\\projectid\\definitions.projectid.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\source\\projectid\\tp_weaponcomponent.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\inc\\projectid\\tp_weaponcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
