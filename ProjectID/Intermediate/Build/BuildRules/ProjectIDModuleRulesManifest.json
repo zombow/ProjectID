@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\78h\\OneDrive\\Documents\\Unreal Projects\\ProjectID\\ProjectID\\Source\\ProjectID\\ProjectID.Build.cs",
-		"C:\\Users\\78h\\OneDrive\\Documents\\Unreal Projects\\ProjectID\\ProjectID\\Source\\ProjectID.Target.cs",
-		"C:\\Users\\78h\\OneDrive\\Documents\\Unreal Projects\\ProjectID\\ProjectID\\Source\\ProjectIDEditor.Target.cs"
+		"D:\\Projects\\ProjectID\\ProjectID\\Source\\ProjectID\\ProjectID.Build.cs",
+		"D:\\Projects\\ProjectID\\ProjectID\\Source\\ProjectID.Target.cs",
+		"D:\\Projects\\ProjectID\\ProjectID\\Source\\ProjectIDEditor.Target.cs"
 	],
 	"EngineVersion": "5.0.3"
 }

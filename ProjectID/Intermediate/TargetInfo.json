@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "ProjectID",
-			"Path": "C:\\Users\\78h\\OneDrive\\Documents\\Unreal Projects\\ProjectID\\ProjectID\\Source\\ProjectID.Target.cs",
+			"Path": "D:\\Projects\\ProjectID\\ProjectID\\Source\\ProjectID.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "ProjectIDEditor",
-			"Path": "C:\\Users\\78h\\OneDrive\\Documents\\Unreal Projects\\ProjectID\\ProjectID\\Source\\ProjectIDEditor.Target.cs",
+			"Path": "D:\\Projects\\ProjectID\\ProjectID\\Source\\ProjectIDEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

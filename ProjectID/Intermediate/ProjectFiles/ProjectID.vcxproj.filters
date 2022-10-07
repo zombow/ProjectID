@@ -29,6 +29,12 @@
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
+    <Filter Include="Config\HoloLens">
+      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
+      <Filter>Config\HoloLens</Filter>
+    </None>
     <Filter Include="Source\ProjectID">
       <UniqueIdentifier>{9919F214-745C-3862-AB62-13A68A7D4982}</UniqueIdentifier>
     </Filter>
@@ -57,6 +63,12 @@
       <Filter>Source\ProjectID</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\ProjectID\ProjectIDProjectile.h">
+      <Filter>Source\ProjectID</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ProjectID\TestCharacter.cpp">
+      <Filter>Source\ProjectID</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ProjectID\TestCharacter.h">
       <Filter>Source\ProjectID</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\ProjectID\TP_PickUpComponent.cpp">
