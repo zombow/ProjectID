@@ -84,5 +84,29 @@
     <ClInclude Include="..\..\Source\ProjectID\TP_WeaponComponent.h">
       <Filter>Source\ProjectID</Filter>
     </ClInclude>
+    <Filter Include="Source\ProjectID\Private">
+      <UniqueIdentifier>{9324FC7D-7F8E-3F40-BADC-689372F997BE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ProjectID\Private\SS">
+      <UniqueIdentifier>{A6B77406-818D-3E63-B1EF-9FB6CA54B514}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ProjectID\Private\SS\LevelProgressManager.cpp">
+      <Filter>Source\ProjectID\Private\SS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProjectID\Private\SS\TVActor.cpp">
+      <Filter>Source\ProjectID\Private\SS</Filter>
+    </ClCompile>
+    <Filter Include="Source\ProjectID\Public">
+      <UniqueIdentifier>{67098D7C-FAFE-3EC1-9FEC-C523854FA766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ProjectID\Public\SS">
+      <UniqueIdentifier>{80DCC291-85D8-3D1A-AF2B-DAAB07D0CBC4}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ProjectID\Public\SS\LevelProgressManager.h">
+      <Filter>Source\ProjectID\Public\SS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ProjectID\Public\SS\TVActor.h">
+      <Filter>Source\ProjectID\Public\SS</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
