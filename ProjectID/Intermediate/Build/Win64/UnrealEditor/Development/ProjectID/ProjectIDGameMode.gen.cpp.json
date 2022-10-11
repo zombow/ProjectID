@@ -1,17 +1,17 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\inc\\projectid\\projectidgamemode.gen.cpp",
+        "Source": "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\inc\\projectid\\projectidgamemode.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\projects\\projectid\\projectid\\intermediate\\build\\win64\\projectideditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "PCH": "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\projectideditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
         "Includes": [
-            "d:\\projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\development\\projectid\\definitions.projectid.h",
-            "d:\\projects\\projectid\\projectid\\source\\projectid\\projectidgamemode.h",
-            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
-            "d:\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
-            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\serverstatreplicator.generated.h",
-            "d:\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamemodebase.generated.h",
-            "d:\\projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\inc\\projectid\\projectidgamemode.generated.h"
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\development\\projectid\\definitions.projectid.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\source\\projectid\\projectidgamemode.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\serverstatreplicator.generated.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamemodebase.generated.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\unrealeditor\\inc\\projectid\\projectidgamemode.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
