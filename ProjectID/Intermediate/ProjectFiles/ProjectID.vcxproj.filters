@@ -84,5 +84,29 @@
     <ClInclude Include="..\..\Source\ProjectID\TP_WeaponComponent.h">
       <Filter>Source\ProjectID</Filter>
     </ClInclude>
+    <Filter Include="Source\ProjectID\Private">
+      <UniqueIdentifier>{9324FC7D-7F8E-3F40-BADC-689372F997BE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ProjectID\Private\AYU_itemPawn.cpp">
+      <Filter>Source\ProjectID\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProjectID\Private\AYU_TestCharacterBaseComponent.cpp">
+      <Filter>Source\ProjectID\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProjectID\Private\AYU_TestCharacterMoveComponent.cpp">
+      <Filter>Source\ProjectID\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\ProjectID\Public">
+      <UniqueIdentifier>{67098D7C-FAFE-3EC1-9FEC-C523854FA766}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ProjectID\Public\AYU_itemPawn.h">
+      <Filter>Source\ProjectID\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ProjectID\Public\AYU_TestCharacterBaseComponent.h">
+      <Filter>Source\ProjectID\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ProjectID\Public\AYU_TestCharacterMoveComponent.h">
+      <Filter>Source\ProjectID\Public</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
