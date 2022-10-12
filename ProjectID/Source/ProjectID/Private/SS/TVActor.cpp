@@ -2,6 +2,7 @@
 
 
 #include "SS/TVActor.h"
+#include <Kismet/GameplayStatics.h>
 
 // Sets default values
 ATVActor::ATVActor()
@@ -22,6 +23,7 @@ ATVActor::ATVActor()
 void ATVActor::BeginPlay()
 {
 	Super::BeginPlay();
+	
 	
 }
 
