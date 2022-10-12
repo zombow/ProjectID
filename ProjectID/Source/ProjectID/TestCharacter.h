@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "TestCharacter.generated.h"
 
+DECLARE_MULTICAST_DELEGATE_OneParam(OnPlayerInputBindingDelegate, class UInputComponent*); // (델이게이트 이름, 넘겨받을 타입)
+
 UCLASS()
 class PROJECTID_API ATestCharacter : public ACharacter
 {
@@ -14,6 +16,8 @@ class PROJECTID_API ATestCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ATestCharacter();
+
+	OnPlayerInputBindingDelegate onPlayerInputBindingDelegate;
 
 protected:
 	// Called when the game starts or when spawned
@@ -25,5 +29,11 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UPROPERTY()
+		class UAYU_TestCharacterMoveComponent* moveComp;
+
+	UPROPERTY()
+		class UCameraComponent* myCameraComp;
 
 };
