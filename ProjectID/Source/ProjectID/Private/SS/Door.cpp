@@ -26,6 +26,13 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// DoorSlightlyOpen();
+
+	DoorOpen();
+}
+
+void ADoor::DoorSlightlyOpen()
+{
 	if (openAngle < 20)
 	{
 		// 값 입력 시 일반 숫자 데이터형은 들어가지 않는다 형변환을 해줘야함
@@ -37,6 +44,12 @@ void ADoor::Tick(float DeltaTime)
 
 void ADoor::DoorOpen()
 {
-
+	if (openAngle < 90)
+	{
+		// 값 입력 시 일반 숫자 데이터형은 들어가지 않는다 형변환을 해줘야함
+		// 특정 각도만큼 회전한다
+		this->AddActorWorldRotation(FRotator(0, 1, 0));
+		openAngle += 1;
+	}
 }
 

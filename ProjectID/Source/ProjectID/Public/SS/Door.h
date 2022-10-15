@@ -35,6 +35,9 @@ public:
 	float openAngle;
 
 	UFUNCTION(BlueprintCallable)
+	void DoorSlightlyOpen();
+
+	UFUNCTION(BlueprintCallable)
 	void DoorOpen();
 
 
