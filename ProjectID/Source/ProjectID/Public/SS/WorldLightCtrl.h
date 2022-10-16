@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "LevelInterface.h"
 #include "WorldLightCtrl.generated.h"
 
 
 UCLASS()
-class PROJECTID_API AWorldLightCtrl : public AActor
+class PROJECTID_API AWorldLightCtrl : public AActor, public ILevelInterface
 {
 	GENERATED_BODY()
 	
@@ -38,4 +39,16 @@ public:
 	// ÃÐºÒ ¿Â¿ÀÇÁ
 	UFUNCTION(BlueprintCallable)
 	void CandleLightOn();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class ASpotLight* smallRoomSpotLight = nullptr;
+	UFUNCTION(BlueprintCallable)
+	void smallRoomSpotLightOn();
+	
+public:
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void ProccedInteraction(int indexNum);
+	virtual void ProccedInteraction_Implementation(int indexNum);
+
 };
