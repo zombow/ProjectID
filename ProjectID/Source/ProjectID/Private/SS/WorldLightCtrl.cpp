@@ -6,6 +6,8 @@
 #include <Components/SkyLightComponent.h>
 #include <Engine/PointLight.h>
 #include <Components/PointLightComponent.h>
+#include <Components/SpotLightComponent.h>
+#include <Engine/SpotLight.h>
 
 // Sets default values
 AWorldLightCtrl::AWorldLightCtrl()
@@ -60,4 +62,19 @@ void AWorldLightCtrl::CandleLightOn()
 		candle->SetVisibility(true);
 	}
 }
+
+void AWorldLightCtrl::smallRoomSpotLightOn()
+{
+	if (smallRoomSpotLight)
+	{
+		USpotLightComponent* smallRoomLight = Cast<USpotLightComponent>(smallRoomSpotLight->GetLightComponent());
+		smallRoomLight->SetVisibility(true);
+	}
+}
+
+void AWorldLightCtrl::ProccedInteraction_Implementation(int indexNum)
+{
+	
+}
+
 

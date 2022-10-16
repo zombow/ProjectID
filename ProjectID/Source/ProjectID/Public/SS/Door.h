@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "LevelInterface.h"
+#include "WorldLightCtrl.h"
 #include "Door.generated.h"
 
-
 UCLASS()
-class PROJECTID_API ADoor : public AActor
+class PROJECTID_API ADoor : public AActor, public ILevelInterface
 {
 	GENERATED_BODY()
 	
@@ -34,11 +35,23 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float openAngle;
 
+	// 문 열림 상태
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsOpen;
+	
+	// 문 열기 상호작용 여부
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsOpenInteraction;
+
 	UFUNCTION(BlueprintCallable)
 	void DoorSlightlyOpen();
 
 	UFUNCTION(BlueprintCallable)
 	void DoorOpen();
 
+public:
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void ProccedInteraction(int indexNum);
+	virtual void ProccedInteraction_Implementation(int indexNum);
 };
