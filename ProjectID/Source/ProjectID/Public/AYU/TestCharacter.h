@@ -40,6 +40,7 @@ public:
 		class UCameraComponent* myCameraComp;
 	UPROPERTY(EditAnywhere)
 		class UCapsuleComponent* capsuleComp;
+		
 
 	//UPROPERTY()
 	//	class UStaticMeshComponent* armComp; //arm mesh가 필요하다며
@@ -50,5 +51,7 @@ public:
 		class UAYU_TestCharacterBaseComponent* moveComp;
 	UPROPERTY(EditAnywhere)
 		class UAYU_TestCharacterBaseComponent* InterectComp;
+	UPROPERTY(EditAnywhere)
+		class UAYU_TestCharacterinvenComponent* InventoryComp;
 
 };

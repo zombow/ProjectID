@@ -9,6 +9,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Engine/StaticMeshSocket.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include <AYU/AYU_TestCharacterinvenComponent.h>
 
 // Sets default values
 ATestCharacter::ATestCharacter()
@@ -18,6 +19,7 @@ ATestCharacter::ATestCharacter()
 
 	moveComp = CreateDefaultSubobject<UAYU_TestCharacterMoveComponent>(TEXT("moveComp")); //movecomp 생성 
 	InterectComp = CreateDefaultSubobject<UAYU_TestCharacterInterComponent>(TEXT("interectComp")); //interectcomp 생성 
+	InventoryComp = CreateDefaultSubobject<UAYU_TestCharacterinvenComponent>(TEXT("inventoryComp")); //invenrotcomp 생성
 
 	myCameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("myCamera")); // 카메라 생성
 	myCameraComp->SetupAttachment(RootComponent); // 카메라를 root에 붙이기
@@ -33,6 +35,7 @@ ATestCharacter::ATestCharacter()
 	armComp_transform->SetupAttachment(myCameraComp); //카메라 밑으로 붙이기 
 	armComp_transform->SetRelativeLocationAndRotation(FVector(40.f, 20.0f, -13.0f), FRotator(60.0f, -185.0f, -175.0f)); //회전방향 설정
 
+	
 	//armComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("armComp")); // armComp생성
 	//ConstructorHelpers::FObjectFinder<UStaticMesh> tempMesh(TEXT("StaticMesh'/Engine/BasicShapes/Cylinder.Cylinder'")); //실린더 형태로생상 (수정가능)
 	//if(tempMesh.Succeeded()) //성공적으로 tempmesh로 받아왓다면 (에러방지)
@@ -49,7 +52,7 @@ ATestCharacter::ATestCharacter()
 void ATestCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame

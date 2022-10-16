@@ -23,7 +23,7 @@ public :
 		void OnOverlapEnd_capsuleComp(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	UPROPERTY()
-	AActor* holding_prop; // 들고있는 물건
+		AActor* holding_prop; // 들고있는 물건
 	UPROPERTY()
 		TArray<AActor*> near_props; // Detectarea에 감지된 Actor들을 담을 array
 	UPROPERTY()
