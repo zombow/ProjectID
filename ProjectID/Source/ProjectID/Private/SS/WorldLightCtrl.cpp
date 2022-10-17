@@ -35,7 +35,7 @@ void AWorldLightCtrl::Tick(float DeltaTime)
 }
 
 // 전체 환경 라이트 수정
-void AWorldLightCtrl::AmbienceLightChange()
+void AWorldLightCtrl::AmbienceLightChange(int eventIndex)
 {
 	// 컬러 값 변경을 위해 임시 변수 선언
 	if(skyLight)
@@ -45,13 +45,23 @@ void AWorldLightCtrl::AmbienceLightChange()
 		//(B = 86, G = 88, R = 255, A = 255)
 		// 컬러 수정
 		// 라이트 수정을 위해선 라이트 컴포넌트에 따로 접근해야함
-		USkyLightComponent* ambienceLight = skyLight->GetLightComponent();
-		ambienceLight->SetLightColor(changeColor);
-		ambienceLight->Intensity = 200;
+		USkyLightComponent* ambientLight = skyLight->GetLightComponent();
+		ambientLight->SetLightColor(changeColor);
+		ambientLight->Intensity = 200;
 	}
 }
 
-void AWorldLightCtrl::CandleLightOn()
+void AWorldLightCtrl::AmbienceLightRecover(int eventIndex)
+{
+	if (skyLight)
+	{
+		USkyLightComponent* ambientLight = skyLight->GetLightComponent();
+		ambientLight->SetLightColor(FLinearColor(1, 1, 1, 1));
+		ambientLight->Intensity = 0.2;
+	}
+}
+
+void AWorldLightCtrl::CandleLightOn(int eventIndex)
 {
 	// candleLight가 지정되었는지 체크
 	if (candleLight)
@@ -63,18 +73,30 @@ void AWorldLightCtrl::CandleLightOn()
 	}
 }
 
-void AWorldLightCtrl::smallRoomSpotLightOn()
+void AWorldLightCtrl::smallRoomSpotLightOn(int eventIndex)
 {
-	if (smallRoomSpotLight)
+	if (smallRoomSpotLight || smallRoomPointLight)
 	{
-		USpotLightComponent* smallRoomLight = Cast<USpotLightComponent>(smallRoomSpotLight->GetLightComponent());
-		smallRoomLight->SetVisibility(true);
+		USpotLightComponent* smallRoomSLight = Cast<USpotLightComponent>(smallRoomSpotLight->GetLightComponent());
+		smallRoomSLight->SetVisibility(true);
+
+		UPointLightComponent* smallRoomPLight = Cast<UPointLightComponent>(smallRoomPointLight->GetLightComponent());
+		smallRoomPLight->SetVisibility(true);
 	}
+}
+
+void AWorldLightCtrl::smallRoomLightOff(int eventIndex)
+{
+	USpotLightComponent* smallRoomSLight = Cast<USpotLightComponent>(smallRoomSpotLight->GetLightComponent());
+	smallRoomSLight->SetVisibility(false);
+
+	UPointLightComponent* smallRoomPLight = Cast<UPointLightComponent>(smallRoomPointLight->GetLightComponent());
+	smallRoomPLight->SetLightColor(FLinearColor(1, 1, 1, 1));
 }
 
 void AWorldLightCtrl::ProccedInteraction_Implementation(int indexNum)
 {
-	
+
 }
 
 

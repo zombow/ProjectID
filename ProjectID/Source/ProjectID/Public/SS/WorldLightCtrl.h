@@ -31,19 +31,24 @@ public:
 	class ASkyLight* skyLight = nullptr;	
 	// 전체 환경 라이트 수정 함수
 	UFUNCTION(BlueprintCallable)
-	void AmbienceLightChange();
+	void AmbienceLightChange(int eventIndex);
+	void AmbienceLightRecover(int eventIndex);
 
 	// 월드 촛불라이트 어사인
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class APointLight* candleLight = nullptr;
 	// 촛불 온오프
 	UFUNCTION(BlueprintCallable)
-	void CandleLightOn();
+	void CandleLightOn(int eventIndex);
 
+	// 작은 방 라이트 컨트롤
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class ASpotLight* smallRoomSpotLight = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class APointLight* smallRoomPointLight = nullptr;
 	UFUNCTION(BlueprintCallable)
-	void smallRoomSpotLightOn();
+	void smallRoomSpotLightOn(int eventIndex);
+	void smallRoomLightOff(int eventIndex);
 	
 public:
 

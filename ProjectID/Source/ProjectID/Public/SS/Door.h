@@ -45,7 +45,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DoorSlightlyOpen();
-
+	
 	UFUNCTION(BlueprintCallable)
 	void DoorOpen();
 
@@ -54,4 +54,7 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void ProccedInteraction(int indexNum);
 	virtual void ProccedInteraction_Implementation(int indexNum);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<AWorldLightCtrl> WorldLight;
 };

@@ -22,8 +22,11 @@ void ADoor::BeginPlay()
 	/*/
 	if (WorldLight != nullptr)
 	{
-		WorldLight->Execute_ProccedInteraction(WorldLight.GetObject());
-		WorldLight->ProccedInteraction();
+// 		WorldLight->Execute_ProccedInteraction(WorldLight.GetObject());
+// 		WorldLight->ProccedInteraction();
+
+		ILevelInterface::Execute_ProccedInteraction(WorldLight, 1);
+
 	}
 	//*/
 
@@ -31,7 +34,8 @@ void ADoor::BeginPlay()
 	/*/
 	if (WorldLight->GetClass()->ImplementsInterface(ULevelInterface::StaticClass()))
 	{
-		ILevelInterface::ProccedInteraction();
+
+		ILevelInterface::Execute_ProccedInteraction(WorldLight, 1);
 	}
 	//*/
 }
@@ -44,6 +48,8 @@ void ADoor::Tick(float DeltaTime)
 	DoorSlightlyOpen();
 
 	DoorOpen();
+
+	
 }
 
 void ADoor::DoorSlightlyOpen()
