@@ -6,6 +6,7 @@
 #include "AYU/AYU_TestCharacterBaseComponent.h"
 #include "AYU_TestCharacterInterComponent.generated.h"
 
+
 /**
  * 
  */
@@ -28,6 +29,10 @@ public :
 		TArray<AActor*> near_props; // Detectarea에 감지된 Actor들을 담을 array
 	UPROPERTY()
 		TArray<AActor*> near_puzzles; // Detectarea에 감지된 puzzle들을 담을 array
+	UPROPERTY()
+		TArray<AActor*> near_viewprops; // Detectarea에 감지된 near_viewprops들을 담을 array
+	//UPROPERTY()
+		//TArray<UUserWidget*> viewprops_widget; // viewprops 위젯
 
 	UPROPERTY()
 		TArray<int>props_dists; // near_props들의 거리를 잰 int 배열
@@ -38,6 +43,8 @@ public :
 		FName prop_tag_name = "Props"; // 잡을수있는 물건의 tag
 	UPROPERTY(EditAnywhere)
 		FName puzzle_tag_name = "Puzzles"; // 범위내의 퍼즐들의 tag
+	UPROPERTY(EditAnywhere)
+		FName viewprop_tag_name = "Viewprops"; // 볼수있는 물건 tag
 
 
 	virtual void BeginPlay() override;
@@ -51,5 +58,5 @@ public :
 
 	void TryAddinventory();
 	void TryUsingPuzzle();
-
+	//void TryViewProps(AActor* viewpropsi);
 };

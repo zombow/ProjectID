@@ -46,15 +46,19 @@ void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E
 	{
 		TryUsingPuzzle();
 	}
+	else if (!(near_viewprops.IsEmpty()))
+	{
+		
+	}
 }
 
 
-void UAYU_TestCharacterInterComponent::OnActionInteractRelessed() //인터렉트키 'E'땟을때
+void UAYU_TestCharacterInterComponent::OnActionInteractRelessed() //인터렉트키 'E' 땟을때
 {
 
 }
 
-void UAYU_TestCharacterInterComponent::TryAddinventory()
+void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 {
 	int near_props_length = near_props.Num();
 	for (int i = 0; i < near_props_length; i++) //near_props들의 거리를 잰 props_dists 채우기
@@ -109,6 +113,10 @@ void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComp
 	{
 		near_puzzles.Add(OtherActor); //가까이 붙은 puzzles를 near_puzzle에 저장
 	}
+	else if (OtherActor->ActorHasTag(viewprop_tag_name))
+	{
+		near_viewprops.Add(OtherActor);
+	}
 }
 
 void UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
@@ -116,5 +124,6 @@ void UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp(UPrimitiveCompon
 {
 	near_props.Remove(OtherActor); // 물건이 detecArea밖으로 나올때 감지된 props를 near_props에서 제거
 	near_puzzles.Remove(OtherActor); //물건이 detecArea밖으로 나올때 감지된 puzzles를 near_puzzles에서 제거
+	near_viewprops.Remove(OtherActor); //물건이 derecArea밖으로 나올때 감지된 viewprops를 near_viewprops에서 제거
 }
 
