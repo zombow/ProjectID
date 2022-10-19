@@ -2,6 +2,7 @@
 
 
 #include "SS/Door.h"
+#include <Components/CapsuleComponent.h>
 
 // Sets default values
 ADoor::ADoor()
@@ -12,12 +13,16 @@ ADoor::ADoor()
 	doorMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("doorMeshComp"));
 	SetRootComponent(doorMeshComp);
 
+	doorCapsulCollComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("doorCapsulCollComp "));
+	doorCapsulCollComp->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
 void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	doorCapsulCollComp->OnComponentBeginOverlap.AddDynamic(this, &ADoor::OnOverlapBegin_doorCapsulCollComp);
 
 	/*/
 	if (WorldLight != nullptr)
@@ -50,6 +55,15 @@ void ADoor::Tick(float DeltaTime)
 	DoorOpen();
 
 	
+}
+
+void ADoor::OnOverlapBegin_doorCapsulCollComp(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Open the door"));
+	if (bIsOpen)
+	{
+		bIsOpenInteraction = true;
+	}
 }
 
 void ADoor::DoorSlightlyOpen()

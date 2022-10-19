@@ -82,6 +82,7 @@ void AWorldLightCtrl::smallRoomSpotLightOn(int eventIndex)
 
 		UPointLightComponent* smallRoomPLight = Cast<UPointLightComponent>(smallRoomPointLight->GetLightComponent());
 		smallRoomPLight->SetVisibility(true);
+		smallRoomPLight->SetLightColor(FLinearColor(1, 0.34375, 0.3359375, 1));
 	}
 }
 
