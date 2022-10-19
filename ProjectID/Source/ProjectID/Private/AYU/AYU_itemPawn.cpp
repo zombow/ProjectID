@@ -2,6 +2,8 @@
 
 
 #include "AYU/AYU_itemPawn.h"
+#include "AYU/TestCharacter.h"
+#include "AYU/AYU_TestCharacterinvenComponent.h"
 
 // Sets default values
 AAYU_itemPawn::AAYU_itemPawn()
@@ -17,11 +19,10 @@ void AAYU_itemPawn::BeginPlay()
 	Super::BeginPlay();
 	
 }
-
+AActor* Player;
 // Called every frame
 void AAYU_itemPawn::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
 
 }
 
@@ -31,4 +32,3 @@ void AAYU_itemPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
-
