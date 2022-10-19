@@ -52,14 +52,12 @@ ATestCharacter::ATestCharacter()
 void ATestCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 // Called every frame
 void ATestCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
 }
 
 // Called to bind functionality to input
@@ -70,4 +68,14 @@ void ATestCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	onPlayerInputBindingDelegate.Broadcast(PlayerInputComponent);
 }
 
+
+void ATestCharacter::candle_LightOn_Implementation() // case : 1 ÃÐºÒ ÄÑÁö±â
+{
+
+}
+
+void ATestCharacter::all_lightOff_Implementation() // case : 2 ºÒ²¨Áö±â
+{
+
+}
 

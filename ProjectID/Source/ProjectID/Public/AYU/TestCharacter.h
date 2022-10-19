@@ -4,12 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "AYU_Player_Interface.h"
 #include "TestCharacter.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(OnPlayerInputBindingDelegate, class UInputComponent*); // (델이게이트 이름, 넘겨받을 타입)
 
 UCLASS()
-class PROJECTID_API ATestCharacter : public ACharacter
+class PROJECTID_API ATestCharacter : public ACharacter ,public IAYU_Player_Interface
 {
 	GENERATED_BODY()
 
@@ -51,7 +52,15 @@ public:
 		class UAYU_TestCharacterBaseComponent* moveComp;
 	UPROPERTY(EditAnywhere)
 		class UAYU_TestCharacterBaseComponent* InterectComp;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterinvenComponent* InventoryComp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int state = 0;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+		void candle_LightOn();
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+		void all_lightOff();
 
 };
+

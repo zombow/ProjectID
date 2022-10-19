@@ -2,9 +2,13 @@
 
 
 #include "AYU/AYU_TestCharacterinvenComponent.h"
+#include "AYU/TestCharacter.h"
+#include <AYU/AYU_TestCharacterBaseComponent.h>
+
 
 UAYU_TestCharacterinvenComponent::UAYU_TestCharacterinvenComponent()
 {
+
 }
 
 void UAYU_TestCharacterinvenComponent::PlayerInputBinding(UInputComponent* PlayerInputComponent)
@@ -21,7 +25,7 @@ void UAYU_TestCharacterinvenComponent::OnActionInventoryPressed() // I키를 눌렀�
 		for (int i = 0; i < inventorysize; i++) // 인벤토리 항목둘을 순차적으로 읽어들이고 이름을 출력하기 위한 for문
 		{
 			AActor* myitems = inventory[i]; // inventort[i] 번째 아이템을 변수화
-			
+
 			UE_LOG(LogTemp, Warning, TEXT("%s"), *myitems->GetName()); //그변수의 이름출력
 		}
 	}
@@ -43,10 +47,12 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 		if (journal == 2) //만약 journal 변수가 2개 라면
 		{
 			UE_LOG(LogTemp, Warning, TEXT("i have a 2 pice of jornals ")); // 2개를 먹엇을떄 할 대사 (함수로 교체)
+			me->state = 1;
 		}
 		else if (journal == 4)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("i got all jornals")); // 4개를 먹엇을때 할 대사(함수로 교체)
+			me->state = 2;
 		}
 	}
 	inventory.Add(items); // 인벤토리에 아이템추가
