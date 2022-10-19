@@ -48,13 +48,11 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("i have a 2 pice of jornals ")); // 2개를 먹엇을떄 할 대사 (함수로 교체)
 			me->state = 1;
-			UE_LOG(LogTemp, Warning, TEXT("%d"), me->state);
 		}
 		else if (journal == 4)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("i got all jornals")); // 4개를 먹엇을때 할 대사(함수로 교체)
 			me->state = 2;
-			UE_LOG(LogTemp, Warning, TEXT("%d"), me->state);
 		}
 	}
 	inventory.Add(items); // 인벤토리에 아이템추가
@@ -63,13 +61,4 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 void UAYU_TestCharacterinvenComponent::RemoveInventory(AActor* items) // 인벤토리 제거 함수 호출시
 {
 	inventory.Remove(items); // 인벤토리 아이템 제거
-}
-
-void UAYU_TestCharacterinvenComponent::candleLightOn_Implementation()// case : 1 촛불켜지기
-{
-	
-}
-void UAYU_TestCharacterinvenComponent::alllightOff_Implementation() // case : 2 불꺼지기
-{
-
 }

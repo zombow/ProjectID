@@ -27,7 +27,7 @@ public:
 		//TArray<AActor*> inventoryFunc();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		void candleLightOn();
+		void candle_LightOn();
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		void alllightOff();
+		void all_lightOff();
 };

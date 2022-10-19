@@ -32,11 +32,5 @@ public:
 
 	void AddInventory(AActor* items);
 	void RemoveInventory(AActor* items);
-
-	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		void candleLightOn();
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		void alllightOff();
 	
 };

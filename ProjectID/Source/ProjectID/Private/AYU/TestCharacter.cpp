@@ -69,3 +69,13 @@ void ATestCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 }
 
 
+void ATestCharacter::candle_LightOn_Implementation() // case : 1 ÃÐºÒ ÄÑÁö±â
+{
+
+}
+
+void ATestCharacter::all_lightOff_Implementation() // case : 2 ºÒ²¨Áö±â
+{
+
+}
+
