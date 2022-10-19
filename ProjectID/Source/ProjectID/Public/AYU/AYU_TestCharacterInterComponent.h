@@ -39,6 +39,7 @@ public :
 	UPROPERTY(EditAnywhere)
 		FName puzzle_tag_name = "Puzzles"; // 범위내의 퍼즐들의 tag
 
+
 	virtual void BeginPlay() override;
 
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -47,5 +48,8 @@ public :
 
 	void OnActionInteractPressed();
 	void OnActionInteractRelessed();
+
+	void TryAddinventory();
+	void TryUsingPuzzle();
 
 };
