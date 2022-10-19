@@ -32,6 +32,7 @@ public:
 	// 전체 환경 라이트 수정 함수
 	UFUNCTION(BlueprintCallable)
 	void AmbienceLightChange(int eventIndex);
+	UFUNCTION(BlueprintCallable)
 	void AmbienceLightRecover(int eventIndex);
 
 	// 월드 촛불라이트 어사인
@@ -42,12 +43,13 @@ public:
 	void CandleLightOn(int eventIndex);
 
 	// 작은 방 라이트 컨트롤
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	class ASpotLight* smallRoomSpotLight = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class APointLight* smallRoomPointLight = nullptr;
 	UFUNCTION(BlueprintCallable)
 	void smallRoomSpotLightOn(int eventIndex);
+	UFUNCTION(BlueprintCallable)
 	void smallRoomLightOff(int eventIndex);
 	
 public:

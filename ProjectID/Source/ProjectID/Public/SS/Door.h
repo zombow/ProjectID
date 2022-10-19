@@ -31,6 +31,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStaticMeshComponent* doorMeshComp;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UCapsuleComponent* doorCapsulCollComp;
+
 	// 문 열리는 각도
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float openAngle;
@@ -42,6 +45,9 @@ public:
 	// 문 열기 상호작용 여부
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsOpenInteraction;
+
+	UFUNCTION()
+	void OnOverlapBegin_doorCapsulCollComp(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	UFUNCTION(BlueprintCallable)
 	void DoorSlightlyOpen();
