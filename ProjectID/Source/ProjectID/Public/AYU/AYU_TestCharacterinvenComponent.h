@@ -29,6 +29,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void OnActionInventoryPressed();
+	bool bopen;
+
 
 	void AddInventory(AActor* items);
 	void RemoveInventory(AActor* items);
