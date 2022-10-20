@@ -11,6 +11,7 @@ AMirror::AMirror()
 
 	mirrorMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("mirrorMeshComp"));
 	SetRootComponent(mirrorMeshComp);
+
 }
 
 // Called when the game starts or when spawned
@@ -18,7 +19,6 @@ void AMirror::BeginPlay()
 {
 	Super::BeginPlay();
 	
-
 }
 
 // Called every frame
