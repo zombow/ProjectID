@@ -42,6 +42,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 	if (items != nullptr) // 넘어온 파라미터가 비어있지 않다면
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Added items"));
+		inventory.Add(items); // 인벤토리에 아이템추가
 	}
 	if (items->ActorHasTag(journal_tags)) // 아이템이 journal관련 태그가 있다면
 	{
@@ -57,7 +58,11 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			me->state = 2;
 		}
 	}
-	inventory.Add(items); // 인벤토리에 아이템추가
+	for (int i = 0; i < inventory.Num(); i++)
+	{
+		AActor* asd = inventory[i];
+		UE_LOG(LogTemp, Warning, TEXT("%s"), *asd->GetName()); 
+	}
 }
 
 void UAYU_TestCharacterinvenComponent::RemoveInventory(AActor* items) // 인벤토리 제거 함수 호출시
