@@ -18,7 +18,7 @@ class PROJECTID_API UAYU_TestCharacterinvenComponent : public UAYU_TestCharacter
 public:
 	UAYU_TestCharacterinvenComponent();
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		TArray<AActor*> inventory; // 아이템 인벤토리 array
 	UPROPERTY(EditAnywhere)
 		FName journal_tags = "journals";
@@ -29,7 +29,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void OnActionInventoryPressed();
-	bool bopen;
+	bool bopen = true;
 
 
 	void AddInventory(AActor* items);
