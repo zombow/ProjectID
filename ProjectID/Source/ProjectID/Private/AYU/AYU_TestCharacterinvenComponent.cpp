@@ -18,6 +18,8 @@ void UAYU_TestCharacterinvenComponent::PlayerInputBinding(UInputComponent* Playe
 
 void UAYU_TestCharacterinvenComponent::OnActionInventoryPressed() // I키를 눌렀을때 
 {
+	bopen = (!bopen);
+	me->inventoryOpen(bopen);
 	int inventorysize = inventory.Num(); //현재 인벤토리의 사이즈를 변수로 지정
 
 	if (inventorysize != NULL) //인벤토리가 비어있지않다면

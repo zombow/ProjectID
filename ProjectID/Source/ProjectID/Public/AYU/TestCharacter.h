@@ -54,8 +54,12 @@ public:
 		class UAYU_TestCharacterBaseComponent* InterectComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterinvenComponent* InventoryComp;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int state = 0;
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void inventoryOpen(bool invenstate);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();
