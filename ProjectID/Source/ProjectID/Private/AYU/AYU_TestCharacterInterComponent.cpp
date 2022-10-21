@@ -68,10 +68,11 @@ void UAYU_TestCharacterInterComponent::OnAttackPressed() // mouse left 공격 키를
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Attack!"));
 		holding_prop->SetActorEnableCollision(true);
+		me->attackorderoder();
 	}
 }
 
-void UAYU_TestCharacterInterComponent::OnAttackRelessed()
+void UAYU_TestCharacterInterComponent::OnAttackRelessed() // mouse right 공격키 를 껏을때
 {
 	if ((holding_prop != nullptr) && holding_prop->ActorHasTag(weapon_tag_name))
 	{

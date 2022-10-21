@@ -65,6 +65,10 @@ public:
 		void candle_LightOn();
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void all_lightOff();
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+		void AttackOrder();
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+		void attackorderoder();
 
 };
 

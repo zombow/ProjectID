@@ -64,4 +64,5 @@ public :
 	void TryAddinventory();
 	void TryUsingPuzzle();
 	//void TryViewProps(AActor* viewpropsi);
+
 };

@@ -68,7 +68,6 @@ void ATestCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	onPlayerInputBindingDelegate.Broadcast(PlayerInputComponent);
 }
 
-
 void ATestCharacter::candle_LightOn_Implementation() // case : 1 촛불 켜지기
 {
 
@@ -79,3 +78,12 @@ void ATestCharacter::all_lightOff_Implementation() // case : 2 불꺼지기
 
 }
 
+void ATestCharacter::AttackOrder_Implementation() // 공격키 누를때 인터페이스 호출
+{
+	
+}
+
+void ATestCharacter::attackorderoder_Implementation()
+{
+
+}
