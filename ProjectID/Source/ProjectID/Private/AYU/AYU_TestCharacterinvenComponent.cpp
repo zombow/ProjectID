@@ -26,9 +26,7 @@ void UAYU_TestCharacterinvenComponent::OnActionInventoryPressed() // I키를 눌렀�
 	{
 		for (int i = 0; i < inventorysize; i++) // 인벤토리 항목둘을 순차적으로 읽어들이고 이름을 출력하기 위한 for문
 		{
-			AActor* myitems = inventory[i]; // inventort[i] 번째 아이템을 변수화
-
-			UE_LOG(LogTemp, Warning, TEXT("%s"), *myitems->GetName()); //그변수의 이름출력
+			//AAYU_itemPawn* myitems = inventory[i]; // inventort[i] 번째 아이템을 변수화
 		}
 	}
 	else
@@ -37,7 +35,7 @@ void UAYU_TestCharacterinvenComponent::OnActionInventoryPressed() // I키를 눌렀�
 	}
 } ///////////////////////////////이 부분은 위젯블루프린트로 교체될 예정/////////////////////////////////
 
-void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
+void UAYU_TestCharacterinvenComponent::AddInventory(AAYU_itemPawn* items)
 {
 	if (items != nullptr) // 넘어온 파라미터가 비어있지 않다면
 	{
@@ -58,14 +56,9 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			me->state = 2;
 		}
 	}
-	for (int i = 0; i < inventory.Num(); i++)
-	{
-		AActor* asd = inventory[i];
-		UE_LOG(LogTemp, Warning, TEXT("%s"), *asd->GetName()); 
-	}
 }
 
-void UAYU_TestCharacterinvenComponent::RemoveInventory(AActor* items) // 인벤토리 제거 함수 호출시
+void UAYU_TestCharacterinvenComponent::RemoveInventory(AAYU_itemPawn* items) // 인벤토리 제거 함수 호출시
 {
 	inventory.Remove(items); // 인벤토리 아이템 제거
 }

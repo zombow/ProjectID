@@ -19,9 +19,9 @@ public:
 	UAYU_TestCharacterinvenComponent();
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		TArray<AActor*> inventory; // 아이템 인벤토리 array
+		TArray<AAYU_itemPawn*> inventory; // 아이템 인벤토리 array
 	UPROPERTY(EditAnywhere)
-		FName journal_tags = "journals";
+		FName journal_tags = "Journals";
 
 	int journal = 0; // journal 갯수를 셀 변수
 
@@ -31,8 +31,7 @@ public:
 		void OnActionInventoryPressed();
 	bool bopen = true;
 
-
-	void AddInventory(AActor* items);
-	void RemoveInventory(AActor* items);
+	void AddInventory(AAYU_itemPawn* items);
+	void RemoveInventory(AAYU_itemPawn* items);
 	
 };

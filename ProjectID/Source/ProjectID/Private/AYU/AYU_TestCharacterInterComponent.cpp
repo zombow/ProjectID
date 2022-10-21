@@ -34,6 +34,10 @@ void UAYU_TestCharacterInterComponent::PlayerInputBinding(UInputComponent* Playe
 
 	PlayerInputComponent->BindAction(TEXT("Interaction"), IE_Pressed, this, &UAYU_TestCharacterInterComponent::OnActionInteractPressed);
 	PlayerInputComponent->BindAction(TEXT("Interaction"), IE_Released, this, &UAYU_TestCharacterInterComponent::OnActionInteractRelessed);
+
+	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &UAYU_TestCharacterInterComponent::OnAttackPressed);
+	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Released, this, &UAYU_TestCharacterInterComponent::OnAttackRelessed);
+
 }
 
 void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E' 눌렀을때
@@ -46,7 +50,7 @@ void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E
 	{
 		TryUsingPuzzle();
 	}
-	else if (!(near_viewprops.IsEmpty()))
+	else if (!(near_viewprops.IsEmpty())) // near_viewprops가 비어짔지 않다면
 	{
 		
 	}
@@ -56,6 +60,24 @@ void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E
 void UAYU_TestCharacterInterComponent::OnActionInteractRelessed() //인터렉트키 'E' 땟을때
 {
 
+}
+
+void UAYU_TestCharacterInterComponent::OnAttackPressed() // mouse left 공격 키를 눌럿을때
+{
+	if ((holding_prop != nullptr) && holding_prop->ActorHasTag(weapon_tag_name))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Attack!"));
+		holding_prop->SetActorEnableCollision(true);
+	}
+}
+
+void UAYU_TestCharacterInterComponent::OnAttackRelessed()
+{
+	if ((holding_prop != nullptr) && holding_prop->ActorHasTag(weapon_tag_name))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Relessed"));
+		holding_prop->SetActorEnableCollision(false);
+	}
 }
 
 void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
@@ -73,17 +95,16 @@ void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 		}
 	}
 	me->InventoryComp->AddInventory(near_props[most_near_dist_index]); // 인벤토리 아이템 추가
-
 	if (holding_prop == nullptr)
 	{
 		holding_prop = near_props[most_near_dist_index]; //가장 가까운물체는 holding_prop으로 담기
-		holding_prop->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale); //들고있는 prop를 나한테 attach (위치조정필요)
-		holding_prop->SetActorEnableCollision(false); //들고있는 prop의 collision끄기
 	}
 	else
 	{
-		near_props[most_near_dist_index]->Destroy();
+		near_props[most_near_dist_index]->SetActorHiddenInGame(true); // 들고 있는 물체가있다면 붙이고 렌더링 끄기
 	}
+	near_props[most_near_dist_index]->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale); //나한테 attach (위치조정필요)
+	near_props[most_near_dist_index]->SetActorEnableCollision(false); //prop의 collision끄기
 	props_dists.Empty(); //props_dists 비우기
 }
 
@@ -107,23 +128,23 @@ void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComp
 {
 	if (OtherActor->ActorHasTag(prop_tag_name))
 	{
-		near_props.Add(OtherActor); //가까이 붙은 props 를 near_props에 저장
+		near_props.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 props 를 near_props에 저장
 	}
 	else if (OtherActor->ActorHasTag(puzzle_tag_name))
 	{
-		near_puzzles.Add(OtherActor); //가까이 붙은 puzzles를 near_puzzle에 저장
+		near_puzzles.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 puzzles를 near_puzzle에 저장
 	}
 	else if (OtherActor->ActorHasTag(viewprop_tag_name))
 	{
-		near_viewprops.Add(OtherActor);
+		near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor));
 	}
 }
 
 void UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	near_props.Remove(OtherActor); // 물건이 detecArea밖으로 나올때 감지된 props를 near_props에서 제거
-	near_puzzles.Remove(OtherActor); //물건이 detecArea밖으로 나올때 감지된 puzzles를 near_puzzles에서 제거
-	near_viewprops.Remove(OtherActor); //물건이 derecArea밖으로 나올때 감지된 viewprops를 near_viewprops에서 제거
+	near_props.Remove(Cast<AAYU_itemPawn>(OtherActor)); // 물건이 detecArea밖으로 나올때 감지된 props를 near_props에서 제거
+	near_puzzles.Remove(Cast<AAYU_itemPawn>(OtherActor)); //물건이 detecArea밖으로 나올때 감지된 puzzles를 near_puzzles에서 제거
+	near_viewprops.Remove(Cast<AAYU_itemPawn>(OtherActor)); //물건이 derecArea밖으로 나올때 감지된 viewprops를 near_viewprops에서 제거
 }
 

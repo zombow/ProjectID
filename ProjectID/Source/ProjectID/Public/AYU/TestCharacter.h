@@ -37,7 +37,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		FVector crouch_cameraPosition = FVector(0.0f, 0.0f, 50.0f);
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UCameraComponent* myCameraComp;
 	UPROPERTY(EditAnywhere)
 		class UCapsuleComponent* capsuleComp;
@@ -45,12 +45,12 @@ public:
 
 	//UPROPERTY()
 	//	class UStaticMeshComponent* armComp; //arm mesh가 필요하다며
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		class USceneComponent* armComp_transform; // 위치값만 필요하다면
 
 	UPROPERTY()
 		class UAYU_TestCharacterBaseComponent* moveComp;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterBaseComponent* InterectComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterinvenComponent* InventoryComp;
