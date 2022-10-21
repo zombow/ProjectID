@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <Field/FieldSystemActor.h>
+#include "MirrorRoomCtrl.h"
 #include "Weapon.generated.h"
 
 UCLASS()
@@ -35,4 +36,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<class AFieldSystemActor> masterField;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class AMirrorRoomCtrl* mirrorCtrl;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool gameEnd = false;
 };

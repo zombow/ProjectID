@@ -3,6 +3,8 @@
 
 #include "SS/Weapon.h"
 #include <Components/SphereComponent.h>
+#include "SS/DestrutibleMirror.h"
+#include <Kismet/GameplayStatics.h>
 
 // Sets default values
 AWeapon::AWeapon()
@@ -35,10 +37,22 @@ void AWeapon::Tick(float DeltaTime)
 
 void AWeapon::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("sibal"));
-	if (OtherActor == Cast<AFieldSystemActor>(OtherActor))
+	if (!gameEnd)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("sibal"));
+
+		auto destructMirror = Cast<ADestrutibleMirror>(OtherActor);
+		destructMirror->bIsFractured = true;
+
+		if (mirrorCtrl->RemainDestructibleMirrorCheck())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("wlfkdgksp"));
+			gameEnd = true;
+			mirrorCtrl->nextLevel = true;
+		}
+
 		GetWorld()->SpawnActor<AFieldSystemActor>(masterField, weaponCollComp->GetComponentTransform());
 	}
+	
 }
 

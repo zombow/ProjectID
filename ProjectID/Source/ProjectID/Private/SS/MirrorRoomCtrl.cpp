@@ -7,6 +7,9 @@
 #include <Kismet/GameplayStatics.h>
 #include <Delegates/Delegate.h>
 #include "AYU/TestCharacter.h"
+#include <GeometryCollection/GeometryCollectionActor.h>
+#include "SS/DestrutibleMirror.h"
+#include "Containers/Array.h"
 
 // Sets default values
 AMirrorRoomCtrl::AMirrorRoomCtrl()
@@ -28,7 +31,7 @@ void AMirrorRoomCtrl::BeginPlay()
 
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMirror::StaticClass(), mirrors);
 	
-	
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), destMirror, destructMirrors);
 }
 
 // Called every frame
@@ -36,6 +39,7 @@ void AMirrorRoomCtrl::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// 보스전 구역 입장 시 거울 올라가는 효과
 	currentTime += DeltaTime;
 	if (bisCharacterReached)
 	{
@@ -46,6 +50,18 @@ void AMirrorRoomCtrl::Tick(float DeltaTime)
 			i++;
 			currentTime = 0.f;
 		}
+	}
+
+	// 보스전 종료 레벨 전환 시간초세기 시작
+	if (nextLevel)
+	{
+		levelOpenTime += DeltaTime;
+	}
+
+	// 시간 경과 시 레벨 전환
+	if (levelOpenTime > 3)
+	{
+		UGameplayStatics::OpenLevel(GetWorld(), FName(openLevelName));
 	}
 }
 
@@ -59,5 +75,35 @@ void AMirrorRoomCtrl::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, 
 		
 	}
 	//*/
+}
+
+bool AMirrorRoomCtrl::RemainDestructibleMirrorCheck()
+{
+	// bool bIsAllFractured = false;
+	float fracturedNum = 0;
+
+	for (int j = 0; j < destructMirrors.Num(); j++)
+	{
+		auto CheckTargetMirror = Cast<ADestrutibleMirror>(destructMirrors[j]);
+
+		if (CheckTargetMirror->bIsFractured)
+		{
+			fracturedNum++;
+		}
+	}
+
+	if (fracturedNum == destructMirrors.Num())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void AMirrorRoomCtrl::IncreaseVignette_Implementation()
+{
+
 }
 
