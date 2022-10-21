@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AYU/AYU_TestCharacterBaseComponent.h"
+#include "AYU_itemPawn.h"
 #include "AYU_TestCharacterInterComponent.generated.h"
 
 
@@ -17,20 +18,19 @@ class PROJECTID_API UAYU_TestCharacterInterComponent : public UAYU_TestCharacter
 
 public :
 	UAYU_TestCharacterInterComponent();
-
 	UFUNCTION()
 		void OnOverlapBegin_capsuleComp(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION()
 		void OnOverlapEnd_capsuleComp(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		AAYU_itemPawn* holding_prop; // 들고있는 물건
 	UPROPERTY()
-		AActor* holding_prop; // 들고있는 물건
+		TArray<AAYU_itemPawn*> near_props; // Detectarea에 감지된 Actor들을 담을 array
 	UPROPERTY()
-		TArray<AActor*> near_props; // Detectarea에 감지된 Actor들을 담을 array
+		TArray<AAYU_itemPawn*> near_puzzles; // Detectarea에 감지된 puzzle들을 담을 array
 	UPROPERTY()
-		TArray<AActor*> near_puzzles; // Detectarea에 감지된 puzzle들을 담을 array
-	UPROPERTY()
-		TArray<AActor*> near_viewprops; // Detectarea에 감지된 near_viewprops들을 담을 array
+		TArray<AAYU_itemPawn*> near_viewprops; // Detectarea에 감지된 near_viewprops들을 담을 array
 	//UPROPERTY()
 		//TArray<UUserWidget*> viewprops_widget; // viewprops 위젯
 
@@ -45,6 +45,8 @@ public :
 		FName puzzle_tag_name = "Puzzles"; // 범위내의 퍼즐들의 tag
 	UPROPERTY(EditAnywhere)
 		FName viewprop_tag_name = "Viewprops"; // 볼수있는 물건 tag
+	UPROPERTY(EditAnywhere)
+		FName weapon_tag_name = "weapons";
 
 
 	virtual void BeginPlay() override;
@@ -55,6 +57,9 @@ public :
 
 	void OnActionInteractPressed();
 	void OnActionInteractRelessed();
+
+	void OnAttackPressed();
+	void OnAttackRelessed();
 
 	void TryAddinventory();
 	void TryUsingPuzzle();
