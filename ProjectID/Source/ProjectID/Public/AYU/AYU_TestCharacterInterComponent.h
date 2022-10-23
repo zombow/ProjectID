@@ -5,14 +5,15 @@
 #include "CoreMinimal.h"
 #include "AYU/AYU_TestCharacterBaseComponent.h"
 #include "AYU_itemPawn.h"
+#include "SS/LevelInterface.h"
+#include "SS/WorldLightCtrl.h"
 #include "AYU_TestCharacterInterComponent.generated.h"
-
 
 /**
  * 
  */
 UCLASS()
-class PROJECTID_API UAYU_TestCharacterInterComponent : public UAYU_TestCharacterBaseComponent
+class PROJECTID_API UAYU_TestCharacterInterComponent : public UAYU_TestCharacterBaseComponent, public ILevelInterface
 {
 	GENERATED_BODY()
 
@@ -25,11 +26,11 @@ public :
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		AAYU_itemPawn* holding_prop; // 들고있는 물건
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<AAYU_itemPawn*> near_props; // Detectarea에 감지된 Actor들을 담을 array
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<AAYU_itemPawn*> near_puzzles; // Detectarea에 감지된 puzzle들을 담을 array
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<AAYU_itemPawn*> near_viewprops; // Detectarea에 감지된 near_viewprops들을 담을 array
 	//UPROPERTY()
 		//TArray<UUserWidget*> viewprops_widget; // viewprops 위젯
@@ -48,6 +49,10 @@ public :
 	UPROPERTY(EditAnywhere)
 		FName weapon_tag_name = "weapons";
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TSubclassOf<AWorldLightCtrl> worldLightCtrl;
+
+
 
 	virtual void BeginPlay() override;
 
@@ -55,6 +60,7 @@ public :
 
 	virtual void PlayerInputBinding(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION(BlueprintCallable)
 	void OnActionInteractPressed();
 	void OnActionInteractRelessed();
 

@@ -51,7 +51,7 @@ public:
 	UPROPERTY()
 		class UAYU_TestCharacterBaseComponent* moveComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UAYU_TestCharacterBaseComponent* InterectComp;
+		class UAYU_TestCharacterInterComponent* InterectComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterinvenComponent* InventoryComp;
 

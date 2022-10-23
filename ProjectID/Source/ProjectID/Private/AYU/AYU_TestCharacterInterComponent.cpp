@@ -9,6 +9,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Engine/BookMark.h"
+#include <Kismet/GameplayStatics.h>
 
 UAYU_TestCharacterInterComponent::UAYU_TestCharacterInterComponent()
 {
@@ -117,6 +118,7 @@ void UAYU_TestCharacterInterComponent::TryUsingPuzzle()
 		holding_prop->Destroy(); //들고있는 프롭 파괴 (퍼즐에 상호작용부분으로 변경)
 		holding_prop = nullptr; //들고있는 프롭 nullptr로 대입
 		UE_LOG(LogTemp, Warning, (TEXT("Puzzle ComePlete!"))); //log로 퍼즐 클리어 출력
+
 	}
 	else // 짝이맞지않거나 주변에 퍼즐이 없다면 
 	{
@@ -129,14 +131,17 @@ void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComp
 {
 	if (OtherActor->ActorHasTag(prop_tag_name))
 	{
+		// UE_LOG(LogTemp, Warning, TEXT("near_props"));
 		near_props.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 props 를 near_props에 저장
 	}
 	else if (OtherActor->ActorHasTag(puzzle_tag_name))
 	{
+		// UE_LOG(LogTemp, Warning, TEXT("near_puzzles"));
 		near_puzzles.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 puzzles를 near_puzzle에 저장
 	}
 	else if (OtherActor->ActorHasTag(viewprop_tag_name))
 	{
+		// UE_LOG(LogTemp, Warning, TEXT("near_viewprops"));
 		near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor));
 	}
 }

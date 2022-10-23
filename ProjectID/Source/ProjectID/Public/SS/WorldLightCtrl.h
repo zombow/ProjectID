@@ -55,7 +55,7 @@ public:
 public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	void ProccedInteraction(int indexNum);
+	void ProccedInteraction(int indexNum) ;
 	virtual void ProccedInteraction_Implementation(int indexNum);
 
 };

@@ -23,6 +23,7 @@ AActor* Player;
 // Called every frame
 void AAYU_itemPawn::Tick(float DeltaTime)
 {
+	Super::Tick(DeltaTime);
 
 }
 
