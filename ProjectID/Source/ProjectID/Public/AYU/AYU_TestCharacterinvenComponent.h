@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AYU/AYU_TestCharacterBaseComponent.h"
 #include "AYU_Player_Interface.h"
+#include "AYU/AYU_TestCharacterInterComponent.h"
 #include "AYU_TestCharacterinvenComponent.generated.h"
 
 /**
@@ -29,6 +30,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void OnActionInventoryPressed();
+
 	bool bopen = true;
 
 	void AddInventory(AAYU_itemPawn* items);

@@ -20,19 +20,6 @@ void UAYU_TestCharacterinvenComponent::OnActionInventoryPressed() // I키를 눌렀�
 {
 	bopen = (!bopen);
 	me->inventoryOpen(bopen);
-	int inventorysize = inventory.Num(); //현재 인벤토리의 사이즈를 변수로 지정
-
-	if (inventorysize != NULL) //인벤토리가 비어있지않다면
-	{
-		for (int i = 0; i < inventorysize; i++) // 인벤토리 항목둘을 순차적으로 읽어들이고 이름을 출력하기 위한 for문
-		{
-			//AAYU_itemPawn* myitems = inventory[i]; // inventort[i] 번째 아이템을 변수화
-		}
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("inventory is Emty")); // 비어있다면 인벤토리가 비어있다.
-	}
 } ///////////////////////////////이 부분은 위젯블루프린트로 교체될 예정/////////////////////////////////
 
 void UAYU_TestCharacterinvenComponent::AddInventory(AAYU_itemPawn* items)
@@ -54,6 +41,19 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AAYU_itemPawn* items)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("i got all jornals")); // 4개를 먹엇을때 할 대사(함수로 교체)
 			me->state = 2;
+			if (me->InterectComp->holding_prop->ActorHasTag(journal_tags))
+			{
+				me->InterectComp->holding_prop->Destroy();
+			}
+			for (int i = 0; i < inventory.Num(); i++)
+			{
+				if (inventory[i]->ActorHasTag(journal_tags))
+				{
+					RemoveInventory(inventory[i]);
+					i--;
+				}
+			}
+			//리무브하면 인벤토리에 온전한 일기장 추가
 		}
 	}
 }

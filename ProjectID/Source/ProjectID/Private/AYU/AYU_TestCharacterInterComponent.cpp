@@ -35,7 +35,6 @@ void UAYU_TestCharacterInterComponent::PlayerInputBinding(UInputComponent* Playe
 
 	PlayerInputComponent->BindAction(TEXT("Interaction"), IE_Pressed, this, &UAYU_TestCharacterInterComponent::OnActionInteractPressed);
 	PlayerInputComponent->BindAction(TEXT("Interaction"), IE_Released, this, &UAYU_TestCharacterInterComponent::OnActionInteractRelessed);
-
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &UAYU_TestCharacterInterComponent::OnAttackPressed);
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Released, this, &UAYU_TestCharacterInterComponent::OnAttackRelessed);
 
@@ -53,7 +52,8 @@ void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E
 	}
 	else if (!(near_viewprops.IsEmpty())) // near_viewprops가 비어짔지 않다면
 	{
-		
+		bviews = (!bviews);
+		me->OnInteraction(bviews);
 	}
 }
 
@@ -96,7 +96,6 @@ void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 			most_near_dist_index = j;
 		}
 	}
-	me->InventoryComp->AddInventory(near_props[most_near_dist_index]); // 인벤토리 아이템 추가
 	if (holding_prop == nullptr)
 	{
 		holding_prop = near_props[most_near_dist_index]; //가장 가까운물체는 holding_prop으로 담기
@@ -105,6 +104,7 @@ void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 	{
 		near_props[most_near_dist_index]->SetActorHiddenInGame(true); // 들고 있는 물체가있다면 붙이고 렌더링 끄기
 	}
+	me->InventoryComp->AddInventory(near_props[most_near_dist_index]); // 인벤토리 아이템 추가
 	near_props[most_near_dist_index]->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale); //나한테 attach (위치조정필요)
 	near_props[most_near_dist_index]->SetActorEnableCollision(false); //prop의 collision끄기
 	props_dists.Empty(); //props_dists 비우기
@@ -114,11 +114,14 @@ void UAYU_TestCharacterInterComponent::TryUsingPuzzle()
 {
 	if (((holding_prop != nullptr) && holding_prop->Tags[1] == near_puzzles[0]->Tags[1])) //가까운 퍼즐이 있고 And 퍼즐과 들고있는 prop이 짝이라면
 	{
+		if(holding_prop->Tags[1] == "3")//액자 퍼즐 해결시
+		{
+			me->state = 3;
+		}
 		me->InventoryComp->RemoveInventory(holding_prop);
 		holding_prop->Destroy(); //들고있는 프롭 파괴 (퍼즐에 상호작용부분으로 변경)
 		holding_prop = nullptr; //들고있는 프롭 nullptr로 대입
 		UE_LOG(LogTemp, Warning, (TEXT("Puzzle ComePlete!"))); //log로 퍼즐 클리어 출력
-
 	}
 	else // 짝이맞지않거나 주변에 퍼즐이 없다면 
 	{
@@ -131,18 +134,15 @@ void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComp
 {
 	if (OtherActor->ActorHasTag(prop_tag_name))
 	{
-		// UE_LOG(LogTemp, Warning, TEXT("near_props"));
 		near_props.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 props 를 near_props에 저장
 	}
 	else if (OtherActor->ActorHasTag(puzzle_tag_name))
 	{
-		// UE_LOG(LogTemp, Warning, TEXT("near_puzzles"));
 		near_puzzles.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 puzzles를 near_puzzle에 저장
 	}
 	else if (OtherActor->ActorHasTag(viewprop_tag_name))
 	{
-		// UE_LOG(LogTemp, Warning, TEXT("near_viewprops"));
-		near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor));
+		near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 viewprops를 near_viewprops에 저장
 	}
 }
 

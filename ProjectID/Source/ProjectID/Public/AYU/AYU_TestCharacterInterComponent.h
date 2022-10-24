@@ -35,6 +35,8 @@ public :
 	//UPROPERTY()
 		//TArray<UUserWidget*> viewprops_widget; // viewprops 위젯
 
+	bool bviews = true;
+
 	UPROPERTY()
 		TArray<int>props_dists; // near_props들의 거리를 잰 int 배열
 	UPROPERTY()
@@ -69,6 +71,7 @@ public :
 
 	void TryAddinventory();
 	void TryUsingPuzzle();
+
 	//void TryViewProps(AActor* viewpropsi);
 
 };

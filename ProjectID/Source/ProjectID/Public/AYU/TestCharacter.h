@@ -60,11 +60,14 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 		void inventoryOpen(bool invenstate);
+	UFUNCTION(BlueprintImplementableEvent)
+		void OnInteraction(bool viewstate);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void all_lightOff();
+
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void AttackOrder();
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
