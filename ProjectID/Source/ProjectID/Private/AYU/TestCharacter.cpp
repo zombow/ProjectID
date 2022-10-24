@@ -6,7 +6,7 @@
 #include "AYU/AYU_TestCharacterInterComponent.h"
 #include "AYU/AYU_TestCharacterMoveComponent.h"
 #include "Camera/CameraComponent.h"
-#include "Components/CapsuleComponent.h"
+#include "Components/BoxComponent.h"
 #include "Engine/StaticMeshSocket.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include <AYU/AYU_TestCharacterinvenComponent.h>
@@ -26,10 +26,10 @@ ATestCharacter::ATestCharacter()
 	myCameraComp->SetRelativeLocation(standing_cameraPosition);
 	myCameraComp->bUsePawnControlRotation = true;
 
-	capsuleComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("DetectArea")); //props 감지를 위한 캡슐 컴포넌트 생성
-	capsuleComp->SetCapsuleSize(80.0f, 130.0f); //캡슐 사이즈결정
-	capsuleComp->SetupAttachment(RootComponent);
-	capsuleComp->SetRelativeLocation(FVector(50.0f, 0.0f, 0.0f));
+	boxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("DetectArea")); //props 감지를 위한 박스 컴포넌트 생성
+	boxComp->SetBoxExtent(FVector(100.0f, 25.0f, 25.0f)); //박스 사이즈결정
+	boxComp->SetupAttachment(myCameraComp); // 카메라가 바라보는 곳만 감지하기위해 카메라에 부착
+	boxComp->SetRelativeLocation(FVector(100.0f, 0.0f, 0.0f));
 
 	armComp_transform = CreateDefaultSubobject<USceneComponent>(TEXT("armComp_transfom"));
 	armComp_transform->SetupAttachment(myCameraComp); //카메라 밑으로 붙이기 

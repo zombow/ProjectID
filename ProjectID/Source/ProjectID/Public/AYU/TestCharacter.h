@@ -40,7 +40,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UCameraComponent* myCameraComp;
 	UPROPERTY(EditAnywhere)
-		class UCapsuleComponent* capsuleComp;
+		class UBoxComponent* boxComp;
 		
 
 	//UPROPERTY()

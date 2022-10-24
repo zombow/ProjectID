@@ -6,7 +6,7 @@
 #include "AYU/AYU_TestCharacterMoveComponent.h"
 #include "AYU/AYU_TestCharacterinvenComponent.h"
 #include "AYU/TestCharacter.h"
-#include "Components/CapsuleComponent.h"
+#include "Components/BoxComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Engine/BookMark.h"
 #include <Kismet/GameplayStatics.h>
@@ -19,8 +19,8 @@ UAYU_TestCharacterInterComponent::UAYU_TestCharacterInterComponent()
 void UAYU_TestCharacterInterComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	me->capsuleComp->OnComponentBeginOverlap.AddDynamic(this, &UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp);
-	me->capsuleComp->OnComponentEndOverlap.AddDynamic(this, &UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp);
+	me->boxComp->OnComponentBeginOverlap.AddDynamic(this, &UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp);
+	me->boxComp->OnComponentEndOverlap.AddDynamic(this, &UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp);
 }
 
 void UAYU_TestCharacterInterComponent::TickComponent(float DeltaTime, ELevelTick TickType,
