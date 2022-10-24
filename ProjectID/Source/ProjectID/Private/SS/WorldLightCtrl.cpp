@@ -41,13 +41,13 @@ void AWorldLightCtrl::AmbienceLightChange(int eventIndex)
 	if(skyLight)
 	{
 		// 바뀌는 컬러 지정 
-		FLinearColor changeColor = FLinearColor(1, 0.34375, 0.3359375, 1);
-		//(B = 86, G = 88, R = 255, A = 255)
+		FLinearColor changeColor = FLinearColor(1, 0.4140625, 0.40625, 1);
+		// (B=104,G=106,R=255,A=255)
 		// 컬러 수정
 		// 라이트 수정을 위해선 라이트 컴포넌트에 따로 접근해야함
 		USkyLightComponent* ambientLight = skyLight->GetLightComponent();
 		ambientLight->SetLightColor(changeColor);
-		ambientLight->Intensity = 200;
+		ambientLight->Intensity = 2000;
 	}
 }
 
@@ -57,7 +57,7 @@ void AWorldLightCtrl::AmbienceLightRecover(int eventIndex)
 	{
 		USkyLightComponent* ambientLight = skyLight->GetLightComponent();
 		ambientLight->SetLightColor(FLinearColor(1, 1, 1, 1));
-		ambientLight->Intensity = 0.2;
+		ambientLight->Intensity = 1.f;
 	}
 }
 
