@@ -43,7 +43,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			me->state = 2;
 			if (me->InterectComp->holding_prop->ActorHasTag(journal_tags))
 			{
-				me->InterectComp->holding_prop->Destroy();
+				me->InterectComp->holding_prop = nullptr;
 			}
 			for (int i = 0; i < inventory.Num(); i++)
 			{
@@ -54,9 +54,15 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 					i--;
 				}
 			}
-			//AActor* aa = GetWorld()->SpawnActor<AActor>(finished_jorunal, me->armComp_transform->GetComponentTransform());
-			//UE_LOG(LogTemp, Warning, TEXT("2 %s"), *aa->GetName());
-			//inventory.Add(aa);//리무브하면 인벤토리에 온전한 일기장 추가
+
+			FActorSpawnParameters testParam;
+			testParam.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+			AAYU_itemPawn* testA = GetWorld()->SpawnActor<AAYU_itemPawn>(finished_journals, me->armComp_transform->GetComponentTransform() ,testParam);
+			testA->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+			testA->SetActorEnableCollision(false);
+			testA->SetActorHiddenInGame(true);
+			inventory.Add(testA);
+			//me->OnItemFinished("key");//리무브하면 인벤토리에 온전한 일기장 추가
 		}
 	}
 }
