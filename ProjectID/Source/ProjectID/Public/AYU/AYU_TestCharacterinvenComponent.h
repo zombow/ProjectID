@@ -20,9 +20,11 @@ public:
 	UAYU_TestCharacterinvenComponent();
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-		TArray<AAYU_itemPawn*> inventory; // 아이템 인벤토리 array
+		TArray<AActor*>inventory; // 아이템 인벤토리 array
 	UPROPERTY(EditAnywhere)
 		FName journal_tags = "Journals";
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		//TSubclassOf<AActor> finished_jorunal; // 블루프린트로 넣을 아이템 (수정필요)
 
 	int journal = 0; // journal 갯수를 셀 변수
 
@@ -33,7 +35,7 @@ public:
 
 	bool bopen = true;
 
-	void AddInventory(AAYU_itemPawn* items);
-	void RemoveInventory(AAYU_itemPawn* items);
+	void AddInventory(AActor* items);
+	void RemoveInventory(AActor* items);
 	
 };
