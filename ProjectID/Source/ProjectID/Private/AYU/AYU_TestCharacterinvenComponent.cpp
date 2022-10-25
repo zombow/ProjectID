@@ -22,7 +22,7 @@ void UAYU_TestCharacterinvenComponent::OnActionInventoryPressed() // I키를 눌렀�
 	me->inventoryOpen(bopen);
 } ///////////////////////////////이 부분은 위젯블루프린트로 교체될 예정/////////////////////////////////
 
-void UAYU_TestCharacterinvenComponent::AddInventory(AAYU_itemPawn* items)
+void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 {
 	if (items != nullptr) // 넘어온 파라미터가 비어있지 않다면
 	{
@@ -49,16 +49,19 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AAYU_itemPawn* items)
 			{
 				if (inventory[i]->ActorHasTag(journal_tags))
 				{
+					inventory[i]->Destroy();
 					RemoveInventory(inventory[i]);
 					i--;
 				}
 			}
-			//리무브하면 인벤토리에 온전한 일기장 추가
+			//AActor* aa = GetWorld()->SpawnActor<AActor>(finished_jorunal, me->armComp_transform->GetComponentTransform());
+			//UE_LOG(LogTemp, Warning, TEXT("2 %s"), *aa->GetName());
+			//inventory.Add(aa);//리무브하면 인벤토리에 온전한 일기장 추가
 		}
 	}
 }
 
-void UAYU_TestCharacterinvenComponent::RemoveInventory(AAYU_itemPawn* items) // 인벤토리 제거 함수 호출시
+void UAYU_TestCharacterinvenComponent::RemoveInventory(AActor* items) // 인벤토리 제거 함수 호출시
 {
 	inventory.Remove(items); // 인벤토리 아이템 제거
 }
