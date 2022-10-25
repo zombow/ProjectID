@@ -63,7 +63,7 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 		void OnInteraction(bool viewstate);
 	UFUNCTION(BlueprintImplementableEvent)
-		void OnItemFinished(FName itemname);
+		void UIinteraction();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();

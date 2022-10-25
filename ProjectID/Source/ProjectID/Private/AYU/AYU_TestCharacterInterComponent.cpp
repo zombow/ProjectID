@@ -42,6 +42,7 @@ void UAYU_TestCharacterInterComponent::PlayerInputBinding(UInputComponent* Playe
 
 void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E' 눌렀을때
 {
+	me->UIinteraction();
 	if (!(near_props.IsEmpty())) //near_props가 비어있지않다면 
 	{
 		TryAddinventory();
@@ -96,7 +97,7 @@ void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 			most_near_dist_index = j;
 		}
 	}
-	AAYU_itemPawn* currentitem = near_props[most_near_dist_index];
+	currentitem = near_props[most_near_dist_index];
 	if (holding_prop == nullptr)
 	{
 		holding_prop = currentitem; //가장 가까운물체는 holding_prop으로 담기
@@ -113,6 +114,7 @@ void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 		currentitem->SetActorEnableCollision(false); //prop의 collision끄기
 	}
 	props_dists.Empty(); //props_dists 비우기
+	currentitem = nullptr; // currentitem 비우기
 }
 
 void UAYU_TestCharacterInterComponent::TryUsingPuzzle()
