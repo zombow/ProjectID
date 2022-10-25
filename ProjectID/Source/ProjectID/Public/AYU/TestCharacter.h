@@ -62,6 +62,8 @@ public:
 		void inventoryOpen(bool invenstate);
 	UFUNCTION(BlueprintImplementableEvent)
 		void OnInteraction(bool viewstate);
+	UFUNCTION(BlueprintImplementableEvent)
+		void UIinteraction();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();
