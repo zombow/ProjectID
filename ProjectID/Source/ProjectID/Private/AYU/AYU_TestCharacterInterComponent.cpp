@@ -118,6 +118,10 @@ void UAYU_TestCharacterInterComponent::TryUsingPuzzle()
 		{
 			me->state = 3;
 		}
+		else if (holding_prop->Tags[1] == "4")//금고 퍼즐 해결시
+		{
+			me->state = 4;
+		}
 		me->InventoryComp->RemoveInventory(holding_prop);
 		holding_prop->Destroy(); //들고있는 프롭 파괴 (퍼즐에 상호작용부분으로 변경)
 		holding_prop = nullptr; //들고있는 프롭 nullptr로 대입

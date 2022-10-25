@@ -41,6 +41,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("i got all jornals")); // 4개를 먹엇을때 할 대사(함수로 교체)
 			me->state = 2;
+			/*/
 			if (me->InterectComp->holding_prop->ActorHasTag(journal_tags))
 			{
 				me->InterectComp->holding_prop->Destroy();
@@ -54,6 +55,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 					i--;
 				}
 			}
+			//*/
 			//AActor* aa = GetWorld()->SpawnActor<AActor>(finished_jorunal, me->armComp_transform->GetComponentTransform());
 			//UE_LOG(LogTemp, Warning, TEXT("2 %s"), *aa->GetName());
 			//inventory.Add(aa);//리무브하면 인벤토리에 온전한 일기장 추가
