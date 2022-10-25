@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AYU_Player_Interface.h"
+#include "AYU_itemPawn.h"
 #include "TestCharacter.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(OnPlayerInputBindingDelegate, class UInputComponent*); // (델이게이트 이름, 넘겨받을 타입)
@@ -40,8 +41,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UCameraComponent* myCameraComp;
 	UPROPERTY(EditAnywhere)
-		class UBoxComponent* boxComp;
-		
+		class UBoxComponent* boxComp;	
 
 	//UPROPERTY()
 	//	class UStaticMeshComponent* armComp; //arm mesh가 필요하다며
