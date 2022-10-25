@@ -43,6 +43,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			me->state = 2;
 			if (me->InterectComp->holding_prop->ActorHasTag(journal_tags))
 			{
+				me->InterectComp->holding_prop->Destroy();
 				me->InterectComp->holding_prop = nullptr;
 			}
 			for (int i = 0; i < inventory.Num(); i++)
