@@ -50,9 +50,9 @@ void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	DoorSlightlyOpen();
+	// DoorSlightlyOpen();
 
-	DoorOpen();
+	// DoorOpen();
 
 	
 }
