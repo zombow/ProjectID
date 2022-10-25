@@ -23,9 +23,8 @@ public:
 		TArray<AActor*>inventory; // 아이템 인벤토리 array
 	UPROPERTY(EditAnywhere)
 		FName journal_tags = "Journals";
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		//TSubclassOf<AActor> finished_jorunal; // 블루프린트로 넣을 아이템 (수정필요)
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<AAYU_itemPawn> finished_journals;
 	int journal = 0; // journal 갯수를 셀 변수
 
 	virtual void PlayerInputBinding(class UInputComponent* PlayerInputComponent) override;
