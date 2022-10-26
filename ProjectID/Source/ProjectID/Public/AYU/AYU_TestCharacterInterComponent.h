@@ -32,8 +32,12 @@ public :
 		TArray<AAYU_itemPawn*> near_puzzles; // Detectarea에 감지된 puzzle들을 담을 array
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<AAYU_itemPawn*> near_viewprops; // Detectarea에 감지된 near_viewprops들을 담을 array
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		AAYU_itemPawn* currentitem; //가장 가까운 props
+		TArray<AActor*> all_items; //감지된 모든 아이템들
+	float temp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		AAYU_itemPawn* mostnearitem; //가장 가까운 props
 
 	bool bviews = true;
 

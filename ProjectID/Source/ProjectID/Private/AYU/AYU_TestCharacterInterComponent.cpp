@@ -13,6 +13,7 @@
 
 UAYU_TestCharacterInterComponent::UAYU_TestCharacterInterComponent()
 {
+	PrimaryComponentTick.bCanEverTick = true;
 }
 
 
@@ -27,6 +28,11 @@ void UAYU_TestCharacterInterComponent::TickComponent(float DeltaTime, ELevelTick
 	FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if (!(all_items.IsEmpty()))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("in the tick"));
+		mostnearitem = Cast<AAYU_itemPawn>(UGameplayStatics::FindNearestActor(me->GetActorLocation(), all_items, temp));
+	}
 }
 
 void UAYU_TestCharacterInterComponent::PlayerInputBinding(UInputComponent* PlayerInputComponent)
@@ -42,15 +48,15 @@ void UAYU_TestCharacterInterComponent::PlayerInputBinding(UInputComponent* Playe
 
 void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E' 눌렀을때
 {
-	if (!(near_props.IsEmpty())) //near_props가 비어있지않다면 
+	if ((mostnearitem != nullptr) && mostnearitem->ActorHasTag(prop_tag_name)) //mostnearitem 이 prop이라면
 	{
 		TryAddinventory();
 	}
-	else if (!(near_puzzles.IsEmpty())) // near_puzzles가 비어있지 않다면
+	else if ((mostnearitem != nullptr) && mostnearitem->ActorHasTag(puzzle_tag_name)) // mostnearitem 이 puzzle이라면
 	{
 		TryUsingPuzzle();
 	}
-	else if (!(near_viewprops.IsEmpty())) // near_viewprops가 비어짔지 않다면
+	else if ((mostnearitem != nullptr) && mostnearitem->ActorHasTag(viewprop_tag_name)) //mostnearitem 이 viewprop이라면
 	{
 		bviews = (!bviews);
 		me->OnInteraction(bviews);
@@ -73,7 +79,7 @@ void UAYU_TestCharacterInterComponent::OnAttackPressed() // mouse left 공격 키를
 	}
 }
 
-void UAYU_TestCharacterInterComponent::OnAttackRelessed() // mouse right 공격키 를 껏을때
+void UAYU_TestCharacterInterComponent::OnAttackRelessed() // mouse right 공격키 를 땟을때
 {
 	if ((holding_prop != nullptr) && holding_prop->ActorHasTag(weapon_tag_name))
 	{
@@ -84,35 +90,22 @@ void UAYU_TestCharacterInterComponent::OnAttackRelessed() // mouse right 공격키 
 
 void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 {
-	int near_props_length = near_props.Num();
-	for (int i = 0; i < near_props_length; i++) //near_props들의 거리를 잰 props_dists 채우기
-	{
-		props_dists.Add(UKismetMathLibrary::Vector_Distance(near_props[i]->GetActorLocation(), me->GetActorLocation()));
-	}
-	for (int j = 0; j < near_props_length; j++) // props_dists들중 가장작은 값(가장 가까운) 값을가진 index를 뽑아내기
-	{
-		if (props_dists[j] < most_near_dist_index)
-		{
-			most_near_dist_index = j;
-		}
-	}
-	currentitem = near_props[most_near_dist_index];
 	if (holding_prop == nullptr)
 	{
-		holding_prop = currentitem; //가장 가까운물체는 holding_prop으로 담기
+		holding_prop = mostnearitem; //가장 가까운물체는 holding_prop으로 담기
 	}
 	else
 	{
-		currentitem->SetActorHiddenInGame(true); // 들고 있는 물체가있다면 붙이고 렌더링 끄기
+		mostnearitem->SetActorHiddenInGame(true); // 들고 있는 물체가있다면 붙이고 렌더링 끄기
 	}
-	me->InventoryComp->AddInventory(currentitem); // 인벤토리 아이템 추가
-	if (currentitem != nullptr)
+	me->InventoryComp->AddInventory(mostnearitem); // 인벤토리 아이템 추가
+	if (mostnearitem != nullptr)
 	{
-		currentitem->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-		currentitem->SetActorEnableCollision(false); //prop의 collision끄기
+		mostnearitem->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+		mostnearitem->SetActorEnableCollision(false); //prop의 collision끄기
 	}
 	props_dists.Empty(); //props_dists 비우기
-	currentitem = nullptr; // currentitem 비우기
+	mostnearitem = nullptr; // mostnearitem 비우기
 }
 
 void UAYU_TestCharacterInterComponent::TryUsingPuzzle()
@@ -142,17 +135,22 @@ void UAYU_TestCharacterInterComponent::TryUsingPuzzle()
 void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) // 오버랩 되었을때
 {
-	if (OtherActor->ActorHasTag(prop_tag_name))
+	if (Cast<AAYU_itemPawn>(OtherActor))
 	{
-		near_props.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 props 를 near_props에 저장
-	}
-	else if (OtherActor->ActorHasTag(puzzle_tag_name))
-	{
-		near_puzzles.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 puzzles를 near_puzzle에 저장
-	}
-	else if (OtherActor->ActorHasTag(viewprop_tag_name))
-	{
-		near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 viewprops를 near_viewprops에 저장
+		all_items.Add(OtherActor);
+
+		if (OtherActor->ActorHasTag(prop_tag_name))
+		{
+			near_props.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 props 를 near_props에 저장
+		}
+		else if (OtherActor->ActorHasTag(puzzle_tag_name))
+		{
+			near_puzzles.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 puzzles를 near_puzzle에 저장
+		}
+		else if (OtherActor->ActorHasTag(viewprop_tag_name))
+		{
+			near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 viewprops를 near_viewprops에 저장
+		}
 	}
 }
 
@@ -162,5 +160,6 @@ void UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp(UPrimitiveCompon
 	near_props.Remove(Cast<AAYU_itemPawn>(OtherActor)); // 물건이 detecArea밖으로 나올때 감지된 props를 near_props에서 제거
 	near_puzzles.Remove(Cast<AAYU_itemPawn>(OtherActor)); //물건이 detecArea밖으로 나올때 감지된 puzzles를 near_puzzles에서 제거
 	near_viewprops.Remove(Cast<AAYU_itemPawn>(OtherActor)); //물건이 derecArea밖으로 나올때 감지된 viewprops를 near_viewprops에서 제거
+	all_items.Remove(Cast<AAYU_itemPawn>(OtherActor));
 }
 
