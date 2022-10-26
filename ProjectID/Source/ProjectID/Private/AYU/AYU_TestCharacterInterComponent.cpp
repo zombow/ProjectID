@@ -56,7 +56,8 @@ void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E
 	{
 		TryUsingPuzzle();
 	}
-	else if ((mostnearitem != nullptr) && mostnearitem->ActorHasTag(viewprop_tag_name)) //mostnearitem 이 viewprop이라면
+	// 수정필요
+	else if ((near_viewprops[0] != nullptr) && near_viewprops[0]->ActorHasTag(viewprop_tag_name)) //mostnearitem 이 viewprop이라면
 	{
 		bviews = (!bviews);
 		me->OnInteraction(bviews);
