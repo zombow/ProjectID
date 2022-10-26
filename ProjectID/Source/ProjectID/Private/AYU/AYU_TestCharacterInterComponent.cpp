@@ -151,15 +151,21 @@ void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComp
 		{
 			near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 viewprops를 near_viewprops에 저장
 		}
+		me->OverlapPropsBegin();
 	}
 }
 
 void UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	if (Cast<AAYU_itemPawn>(OtherActor))
+	{
 	near_props.Remove(Cast<AAYU_itemPawn>(OtherActor)); // 물건이 detecArea밖으로 나올때 감지된 props를 near_props에서 제거
 	near_puzzles.Remove(Cast<AAYU_itemPawn>(OtherActor)); //물건이 detecArea밖으로 나올때 감지된 puzzles를 near_puzzles에서 제거
 	near_viewprops.Remove(Cast<AAYU_itemPawn>(OtherActor)); //물건이 derecArea밖으로 나올때 감지된 viewprops를 near_viewprops에서 제거
 	all_items.Remove(Cast<AAYU_itemPawn>(OtherActor));
+
+	me->OverlapPropsEnd();
+	}
 }
 

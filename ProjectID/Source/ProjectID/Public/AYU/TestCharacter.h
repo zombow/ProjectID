@@ -64,6 +64,11 @@ public:
 		void OnInteraction(bool viewstate);
 	UFUNCTION(BlueprintImplementableEvent)
 		void UIinteraction();
+	UFUNCTION(BlueprintImplementableEvent)
+		void OverlapPropsBegin();
+	UFUNCTION(BlueprintImplementableEvent)
+		void OverlapPropsEnd();
+
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();
