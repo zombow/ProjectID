@@ -32,6 +32,7 @@ void UAYU_TestCharacterInterComponent::TickComponent(float DeltaTime, ELevelTick
 	{
 		UE_LOG(LogTemp, Warning, TEXT("in the tick"));
 		mostnearitem = Cast<AAYU_itemPawn>(UGameplayStatics::FindNearestActor(me->GetActorLocation(), all_items, temp));
+		me->OverlapPropsBegin();
 	}
 	else
 	{
@@ -142,6 +143,7 @@ void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComp
 {
 	if (Cast<AAYU_itemPawn>(OtherActor))
 	{
+		all_items.Add(OtherActor);
 		if (OtherActor->ActorHasTag(prop_tag_name))
 		{
 			near_props.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 props 를 near_props에 저장
@@ -154,7 +156,7 @@ void UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp(UPrimitiveComp
 		{
 			near_viewprops.Add(Cast<AAYU_itemPawn>(OtherActor)); //가까이 붙은 viewprops를 near_viewprops에 저장
 		}
-		me->OverlapPropsBegin();
+		
 	}
 }
 
