@@ -42,7 +42,6 @@ void UAYU_TestCharacterInterComponent::PlayerInputBinding(UInputComponent* Playe
 
 void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E' 눌렀을때
 {
-	me->UIinteraction();
 	if (!(near_props.IsEmpty())) //near_props가 비어있지않다면 
 	{
 		TryAddinventory();
@@ -106,7 +105,6 @@ void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 	{
 		currentitem->SetActorHiddenInGame(true); // 들고 있는 물체가있다면 붙이고 렌더링 끄기
 	}
-
 	me->InventoryComp->AddInventory(currentitem); // 인벤토리 아이템 추가
 	if (currentitem != nullptr)
 	{

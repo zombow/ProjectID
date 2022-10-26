@@ -28,6 +28,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Added items"));
 		inventory.Add(items); // 인벤토리에 아이템추가
+		me->UIinteraction(); //아이템 획득 알림
 	}
 	if (items->ActorHasTag(journal_tags)) // 아이템이 journal관련 태그가 있다면
 	{
@@ -62,7 +63,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			testA->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 			testA->SetActorEnableCollision(false);
 			testA->SetActorHiddenInGame(true);
-			inventory.Add(testA);
+			AddInventory(testA);
 			//me->OnItemFinished("key");//리무브하면 인벤토리에 온전한 일기장 추가
 		}
 	}
