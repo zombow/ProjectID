@@ -71,7 +71,16 @@ void ATestCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 void ATestCharacter::candle_LightOn_Implementation() // case : 1 촛불 켜지기
 {
-
+	/*/
+	// 인터페이스 변수를 만들어 타겟 클래스 인스턴스를 캐스트해서 넣어준다.
+	IAYU_Player_Interface* Temp = Cast<IAYU_Player_Interface>(this);
+	// 캐스트가 성공되었는지 체크
+	if (Temp)
+	{
+		// 타겟 클래스 인터페이스 변수에서 함수를 호출
+		Temp->all_lightOff();
+	}
+	//*/
 }
 
 void ATestCharacter::all_lightOff_Implementation() // case : 2 불꺼지기
