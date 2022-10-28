@@ -82,7 +82,6 @@ void UAYU_TestCharacterMoveComponent::OnActionRunReleased()
 void UAYU_TestCharacterMoveComponent::OnActionCrouchPressed()
 {
 	myMovementComp->MaxWalkSpeed = crouch_Speed;
-	me->myCameraComp->SetRelativeLocation(me->crouch_cameraPosition);
 
 	isCrouch = true;
 }
@@ -90,7 +89,6 @@ void UAYU_TestCharacterMoveComponent::OnActionCrouchPressed()
 void UAYU_TestCharacterMoveComponent::OnActionCrouchReleased()
 {
 	myMovementComp->MaxWalkSpeed = walk_Speed;
-	me->myCameraComp->SetRelativeLocation(me->standing_cameraPosition);
 
 	isCrouch = false;
 }

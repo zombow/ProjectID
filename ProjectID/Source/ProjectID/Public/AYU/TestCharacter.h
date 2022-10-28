@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "AYU_Player_Interface.h"
 #include "AYU_itemPawn.h"
-#include <Camera/CameraComponent.h>
+#include "Camera/CameraComponent.h"
 
 #include "TestCharacter.generated.h"
 
@@ -39,8 +39,6 @@ public:
 	UPROPERTY(EditAnywhere)
 		FVector crouch_cameraPosition = FVector(0.0f, 0.0f, 50.0f);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UCameraComponent* myCameraComp;
 	UPROPERTY(EditAnywhere)
 		class UBoxComponent* boxComp;	
 
@@ -55,6 +53,8 @@ public:
 		class UAYU_TestCharacterInterComponent* InterectComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterinvenComponent* InventoryComp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UAYU_CineCameraComponent* myCameraComp;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int state = 0;
@@ -69,7 +69,6 @@ public:
 		void OverlapPropsBegin();
 	UFUNCTION(BlueprintImplementableEvent)
 		void OverlapPropsEnd();
-
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();
