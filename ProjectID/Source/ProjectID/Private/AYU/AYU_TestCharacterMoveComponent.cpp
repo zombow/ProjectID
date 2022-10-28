@@ -2,7 +2,7 @@
 
 #include "AYU/AYU_TestCharacterMoveComponent.h"
 #include "AYU/TestCharacter.h"
-#include "Camera/CameraComponent.h"
+
 #include "GameFramework/CharacterMovementComponent.h"
 
 UAYU_TestCharacterMoveComponent::UAYU_TestCharacterMoveComponent()
@@ -13,7 +13,6 @@ UAYU_TestCharacterMoveComponent::UAYU_TestCharacterMoveComponent()
 void UAYU_TestCharacterMoveComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
 	myMovementComp = me->GetCharacterMovement(); // 캐릭터 무브먼트 가져오기
 	myMovementComp->MaxWalkSpeed = walk_Speed; // 시작시 이동속도를 walk스피드로 초기화
 }
@@ -64,6 +63,7 @@ void UAYU_TestCharacterMoveComponent::OnAxisLookUp(float value)
 void UAYU_TestCharacterMoveComponent::OnAxisTurn(float value)
 {
 	me->AddControllerPitchInput(value);
+	
 }
 
 void UAYU_TestCharacterMoveComponent::OnActionRunPressed()

@@ -5,11 +5,12 @@
 
 #include "AYU/AYU_TestCharacterInterComponent.h"
 #include "AYU/AYU_TestCharacterMoveComponent.h"
-#include "Camera/CameraComponent.h"
+#include <AYU/AYU_TestCharacterinvenComponent.h>
 #include "Components/BoxComponent.h"
 #include "Engine/StaticMeshSocket.h"
+
 #include "GameFramework/CharacterMovementComponent.h"
-#include <AYU/AYU_TestCharacterinvenComponent.h>
+
 
 // Sets default values
 ATestCharacter::ATestCharacter()

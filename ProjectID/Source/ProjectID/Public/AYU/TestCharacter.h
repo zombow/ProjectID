@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "AYU_Player_Interface.h"
 #include "AYU_itemPawn.h"
+#include <Camera/CameraComponent.h>
+
 #include "TestCharacter.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(OnPlayerInputBindingDelegate, class UInputComponent*); // (델이게이트 이름, 넘겨받을 타입)
@@ -14,7 +16,6 @@ UCLASS()
 class PROJECTID_API ATestCharacter : public ACharacter ,public IAYU_Player_Interface
 {
 	GENERATED_BODY()
-
 public:
 	// Sets default values for this character's properties
 	ATestCharacter();

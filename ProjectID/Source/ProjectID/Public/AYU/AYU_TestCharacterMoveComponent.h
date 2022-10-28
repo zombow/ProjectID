@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AYU_TestCharacterBaseComponent.h"
+#include <Camera/CameraComponent.h>
 #include "AYU_TestCharacterMoveComponent.generated.h"
 
 /**
