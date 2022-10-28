@@ -10,10 +10,14 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Engine/BookMark.h"
 #include <Kismet/GameplayStatics.h>
+#include "Engine.h"
+#include "Engine/Blueprint.h"
 
 UAYU_TestCharacterInterComponent::UAYU_TestCharacterInterComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
+	ConstructorHelpers::FClassFinder<UBlueprint> bpDirLockClass(TEXT("Blueprint'/Game/SS/Blueprints/BP_DirLock.BP_DirLock_C'"));
+
 }
 
 
@@ -22,6 +26,13 @@ void UAYU_TestCharacterInterComponent::BeginPlay()
 	Super::BeginPlay();
 	me->boxComp->OnComponentBeginOverlap.AddDynamic(this, &UAYU_TestCharacterInterComponent::OnOverlapBegin_capsuleComp);
 	me->boxComp->OnComponentEndOverlap.AddDynamic(this, &UAYU_TestCharacterInterComponent::OnOverlapEnd_capsuleComp);
+	
+	/*/
+	if (bpDirLockClass.Succeeded())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("digh!"));
+	}
+	//*/
 }
 
 void UAYU_TestCharacterInterComponent::TickComponent(float DeltaTime, ELevelTick TickType,

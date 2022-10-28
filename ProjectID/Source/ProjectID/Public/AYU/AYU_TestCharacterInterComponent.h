@@ -55,8 +55,11 @@ public :
 	UPROPERTY(EditAnywhere)
 		FName weapon_tag_name = "weapons";
 
+	// ±è¼º¼ö Ãß°¡
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TSubclassOf<AWorldLightCtrl> worldLightCtrl;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<AActor> dirLock;
 
 
 
