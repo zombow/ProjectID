@@ -10,6 +10,7 @@
 #include "Engine/StaticMeshSocket.h"
 
 #include "GameFramework/CharacterMovementComponent.h"
+#include "AYU/AYU_CineCameraComponent.h"
 
 
 // Sets default values
@@ -21,11 +22,12 @@ ATestCharacter::ATestCharacter()
 	moveComp = CreateDefaultSubobject<UAYU_TestCharacterMoveComponent>(TEXT("moveComp")); //movecomp 생성 
 	InterectComp = CreateDefaultSubobject<UAYU_TestCharacterInterComponent>(TEXT("interectComp")); //interectcomp 생성 
 	InventoryComp = CreateDefaultSubobject<UAYU_TestCharacterinvenComponent>(TEXT("inventoryComp")); //invenrotcomp 생성
+	myCameraComp = CreateDefaultSubobject<UAYU_CineCameraComponent>(TEXT("cineComp")); // cineComp 생성
 
-	myCameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("myCamera")); // 카메라 생성
 	myCameraComp->SetupAttachment(RootComponent); // 카메라를 root에 붙이기
 	myCameraComp->SetRelativeLocation(standing_cameraPosition);
 	myCameraComp->bUsePawnControlRotation = true;
+
 
 	boxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("DetectArea")); //props 감지를 위한 박스 컴포넌트 생성
 	boxComp->SetBoxExtent(FVector(100.0f, 25.0f, 25.0f)); //박스 사이즈결정
