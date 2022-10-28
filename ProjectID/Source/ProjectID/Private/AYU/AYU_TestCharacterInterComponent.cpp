@@ -16,7 +16,6 @@
 UAYU_TestCharacterInterComponent::UAYU_TestCharacterInterComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
-	ConstructorHelpers::FClassFinder<UBlueprint> bpDirLockClass(TEXT("Blueprint'/Game/SS/Blueprints/BP_DirLock.BP_DirLock_C'"));
 
 }
 

@@ -19,9 +19,9 @@ class PROJECTID_API UAYU_TestCharacterInterComponent : public UAYU_TestCharacter
 
 public :
 	UAYU_TestCharacterInterComponent();
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		void OnOverlapBegin_capsuleComp(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		void OnOverlapEnd_capsuleComp(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
