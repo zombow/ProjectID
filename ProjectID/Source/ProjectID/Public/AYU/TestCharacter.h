@@ -34,7 +34,7 @@ public:
 
 
 	UPROPERTY(EditAnywhere)
-		FVector standing_cameraPosition = FVector(0.0f, 0.0f, 100.0f);
+		FVector standing_cameraPosition = FVector(0.0f, 0.0f, 70.0f);
 	UPROPERTY(EditAnywhere)
 		FVector crouch_cameraPosition = FVector(0.0f, 0.0f, 50.0f);
 
