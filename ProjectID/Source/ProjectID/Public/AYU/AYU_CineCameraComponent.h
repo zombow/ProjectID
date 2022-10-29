@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS( ClassGroup = (Custom), meta = (BlueprintSpawnableComponent) )
 class PROJECTID_API UAYU_CineCameraComponent : public UCineCameraComponent
 {
 	GENERATED_BODY()

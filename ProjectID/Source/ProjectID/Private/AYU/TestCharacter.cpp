@@ -22,7 +22,7 @@ ATestCharacter::ATestCharacter()
 	moveComp = CreateDefaultSubobject<UAYU_TestCharacterMoveComponent>(TEXT("moveComp")); //movecomp 积己 
 	InterectComp = CreateDefaultSubobject<UAYU_TestCharacterInterComponent>(TEXT("interectComp")); //interectcomp 积己 
 	InventoryComp = CreateDefaultSubobject<UAYU_TestCharacterinvenComponent>(TEXT("inventoryComp")); //invenrotcomp 积己
-	myCameraComp = CreateDefaultSubobject<UAYU_CineCameraComponent>(TEXT("cineComp")); // cineComp 积己
+	myCameraComp = CreateDefaultSubobject<UCineCameraComponent>(TEXT("cineComp")); // cineComp 积己
 
 	myCameraComp->SetupAttachment(RootComponent); // 墨皋扼甫 root俊 嘿捞扁
 	myCameraComp->SetRelativeLocation(standing_cameraPosition);
