@@ -7,7 +7,7 @@
 #include "AYU_Player_Interface.h"
 #include "AYU_itemPawn.h"
 #include "Camera/CameraComponent.h"
-
+#include "Runtime/CinematicCamera/Public/CineCameraComponent.h"
 #include "TestCharacter.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(OnPlayerInputBindingDelegate, class UInputComponent*); // (델이게이트 이름, 넘겨받을 타입)
@@ -47,14 +47,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		class USceneComponent* armComp_transform; // 위치값만 필요하다면
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterBaseComponent* moveComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterInterComponent* InterectComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAYU_TestCharacterinvenComponent* InventoryComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UAYU_CineCameraComponent* myCameraComp;
+		class UCineCameraComponent* myCameraComp;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int state = 0;

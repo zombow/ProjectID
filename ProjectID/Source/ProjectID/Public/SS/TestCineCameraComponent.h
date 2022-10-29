@@ -4,19 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "CineCameraComponent.h"
-#include "AYU_CineCameraComponent.generated.h"
+#include "TestCineCameraComponent.generated.h"
 
 /**
  * 
  */
 UCLASS( ClassGroup = (Custom), meta = (BlueprintSpawnableComponent) )
-class PROJECTID_API UAYU_CineCameraComponent : public UCineCameraComponent
+class PROJECTID_API UTestCineCameraComponent : public UCineCameraComponent
 {
 	GENERATED_BODY()
-
-	UAYU_CineCameraComponent();
-
-public:
-	class ATestCharacter* me;
-
+	
 };
