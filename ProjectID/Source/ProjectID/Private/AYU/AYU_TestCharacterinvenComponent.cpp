@@ -20,6 +20,7 @@ void UAYU_TestCharacterinvenComponent::OnActionInventoryPressed() // I키를 눌렀�
 {
 	bopen = (!bopen);
 	me->inventoryOpen(bopen);
+	UE_LOG(LogTemp, Warning, TEXT("invenOpen"));
 } ///////////////////////////////이 부분은 위젯블루프린트로 교체될 예정/////////////////////////////////
 
 void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)

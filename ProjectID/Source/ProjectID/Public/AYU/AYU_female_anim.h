@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
+#include "TestCharacter.h"
 #include "AYU_female_anim.generated.h"
 
 /**
@@ -19,7 +20,6 @@ public :
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float speed_forward;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float speed_right;
 
