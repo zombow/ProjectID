@@ -26,7 +26,7 @@ ATestCharacter::ATestCharacter()
 
 	myCameraComp->SetupAttachment(RootComponent); // 카메라를 root에 붙이기
 	myCameraComp->SetRelativeLocation(standing_cameraPosition);
-	myCameraComp->bUsePawnControlRotation = true;
+	myCameraComp->bUsePawnControlRotation = true; //마우스에 카메라회전사용
 
 
 	boxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("DetectArea")); //props 감지를 위한 박스 컴포넌트 생성
