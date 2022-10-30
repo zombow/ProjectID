@@ -35,8 +35,8 @@ ATestCharacter::ATestCharacter()
 	boxComp->SetRelativeLocation(FVector(100.0f, 0.0f, 0.0f));
 
 	armComp_transform = CreateDefaultSubobject<USceneComponent>(TEXT("armComp_transfom"));
-	armComp_transform->SetupAttachment(myCameraComp); //카메라 밑으로 붙이기 
-	armComp_transform->SetRelativeLocationAndRotation(FVector(40.f, 20.0f, -13.0f), FRotator(60.0f, -185.0f, -175.0f)); //회전방향 설정
+	armComp_transform->SetupAttachment(GetMesh(),TEXT("HoldingPosition")); //손 위치에 붙이기
+	armComp_transform->SetRelativeLocationAndRotation(FVector(0, 0, 0),FRotator(0,0,0)); //회전방향 설정
 
 	
 	//armComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("armComp")); // armComp생성
