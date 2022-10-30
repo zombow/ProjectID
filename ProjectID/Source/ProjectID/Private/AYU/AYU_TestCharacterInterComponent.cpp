@@ -12,6 +12,7 @@
 #include <Kismet/GameplayStatics.h>
 #include "Engine.h"
 #include "Engine/Blueprint.h"
+#include <AYU/AYU_female_anim.h>
 
 UAYU_TestCharacterInterComponent::UAYU_TestCharacterInterComponent()
 {
@@ -91,7 +92,9 @@ void UAYU_TestCharacterInterComponent::OnAttackPressed() // mouse left 공격 키를
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Attack!"));
 		holding_prop->SetActorEnableCollision(true);
+		isattack = true;
 		me->attackorderoder();
+		auto animinst = Cast<UAYU_female_anim>(me->GetMesh()->GetAnimInstance());
 	}
 }
 

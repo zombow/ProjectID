@@ -25,4 +25,6 @@ public :
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UAnimMontage* attackAnimMontage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool isattack;
 };

@@ -7,6 +7,7 @@
 #include "AYU_itemPawn.h"
 #include "SS/LevelInterface.h"
 #include "SS/WorldLightCtrl.h"
+#include "AYU_female_anim.h"
 #include "AYU_TestCharacterInterComponent.generated.h"
 
 /**
@@ -40,6 +41,8 @@ public :
 		AAYU_itemPawn* mostnearitem; //가장 가까운 props
 
 	bool bviews = true;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool isattack = false;
 
 	UPROPERTY()
 		TArray<int>props_dists; // near_props들의 거리를 잰 int 배열
