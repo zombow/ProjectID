@@ -38,7 +38,7 @@ void AWeapon::Tick(float DeltaTime)
 
 void AWeapon::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (!Cast<ATestCharacter>(OtherActor))
+	if (Cast<ADestrutibleMirror>(OtherActor))
 	{
 		if (!gameEnd)
 		{

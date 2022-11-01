@@ -31,7 +31,7 @@ void ADestrutibleMirror::Tick(float DeltaTime)
 		{
 			SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, FMath::Lerp(-130, 160, lerpAlpha)));
 		}
-		else if(lerpAlpha == 1)
+		else
 		{
 			tempGCC->SetSimulatePhysics(true);
 			bCombatStart = false;
