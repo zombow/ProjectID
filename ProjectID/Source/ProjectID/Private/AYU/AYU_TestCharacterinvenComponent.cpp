@@ -85,6 +85,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			me->FallSleep(); // 수면제, 술을 다마신뒤호출할 이벤트
 		}
 	}
+	
 }
 
 void UAYU_TestCharacterinvenComponent::RemoveInventory(AActor* items) // 인벤토리 제거 함수 호출시

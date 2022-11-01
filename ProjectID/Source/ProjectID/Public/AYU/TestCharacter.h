@@ -71,6 +71,8 @@ public:
 		void OverlapPropsEnd();
 	UFUNCTION(BlueprintImplementableEvent)
 		void FallSleep();
+	UFUNCTION(BlueprintImplementableEvent)
+		void GetRing();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();
