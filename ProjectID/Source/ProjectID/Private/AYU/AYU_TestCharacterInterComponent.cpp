@@ -107,19 +107,26 @@ void UAYU_TestCharacterInterComponent::OnAttackRelessed() // mouse right 공격키 
 
 void UAYU_TestCharacterInterComponent::TryAddinventory() //인벤토리 추가
 {
-	if (holding_prop == nullptr)
+	if (mostnearitem->ActorHasTag(ring_tag_name))
 	{
-		holding_prop = mostnearitem; //가장 가까운물체는 holding_prop으로 담기
+		me->GetRing();
 	}
 	else
 	{
-		mostnearitem->SetActorHiddenInGame(true); // 들고 있는 물체가있다면 붙이고 렌더링 끄기
-	}
-	me->InventoryComp->AddInventory(mostnearitem); // 인벤토리 아이템 추가
-	if (mostnearitem != nullptr)
-	{
-		mostnearitem->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-		mostnearitem->SetActorEnableCollision(false); //prop의 collision끄기
+		if (holding_prop == nullptr)
+		{
+			holding_prop = mostnearitem; //가장 가까운물체는 holding_prop으로 담기
+		}
+		else
+		{
+			mostnearitem->SetActorHiddenInGame(true); // 들고 있는 물체가있다면 붙이고 렌더링 끄기
+		}
+		me->InventoryComp->AddInventory(mostnearitem); // 인벤토리 아이템 추가
+		if (mostnearitem != nullptr)
+		{
+			mostnearitem->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+			mostnearitem->SetActorEnableCollision(false); //prop의 collision끄기
+		}
 	}
 	props_dists.Empty(); //props_dists 비우기
 	mostnearitem = nullptr; // mostnearitem 비우기

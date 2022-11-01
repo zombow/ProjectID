@@ -56,7 +56,9 @@ public :
 	UPROPERTY(EditAnywhere)
 		FName viewprop_tag_name = "Viewprops"; // 볼수있는 물건 tag
 	UPROPERTY(EditAnywhere)
-		FName weapon_tag_name = "weapons";
+		FName weapon_tag_name = "Weapons"; // 공격 기능이 있는 물건 tag
+	UPROPERTY(EditAnywhere)
+		FName ring_tag_name = "Rings"; // 시퀀서를 실행시킬 tag 이름
 
 	// 김성수 추가
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

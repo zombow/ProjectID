@@ -12,7 +12,7 @@
  * 
  */
 UCLASS(Blueprintable)
-class PROJECTID_API UAYU_TestCharacterinvenComponent : public UAYU_TestCharacterBaseComponent, public IAYU_Player_Interface
+class PROJECTID_API UAYU_TestCharacterinvenComponent : public UAYU_TestCharacterBaseComponent, public ILevelInterface
 {
 	GENERATED_BODY()
 	
@@ -25,6 +25,8 @@ public:
 		FName journal_tags = "Journals";
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FName sleep_Props_tags = "SleepProps";
+	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<AAYU_itemPawn> finished_journals;
 
