@@ -42,16 +42,18 @@ void AWeapon::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 		UE_LOG(LogTemp, Warning, TEXT("sibal"));
 
 		auto destructMirror = Cast<ADestrutibleMirror>(OtherActor);
-		destructMirror->bIsFractured = true;
-
-		if (mirrorCtrl->RemainDestructibleMirrorCheck())
+		if (destructMirror)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("wlfkdgksp"));
-			gameEnd = true;
-			mirrorCtrl->nextLevel = true;
+			destructMirror->bIsFractured = true;
 		}
+		//if (mirrorCtrl->RemainDestructibleMirrorCheck())
+		//{
+		//	UE_LOG(LogTemp, Warning, TEXT("wlfkdgksp"));
+		//	gameEnd = true;
+		//	mirrorCtrl->nextLevel = true;
+		//}
 
-		GetWorld()->SpawnActor<AFieldSystemActor>(masterField, weaponCollComp->GetComponentTransform());
+		//GetWorld()->SpawnActor<AFieldSystemActor>(masterField, weaponCollComp->GetComponentTransform());
 	}
 	
 }

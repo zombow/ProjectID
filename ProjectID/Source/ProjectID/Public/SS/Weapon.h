@@ -4,12 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "AYU/AYU_itemPawn.h"
 #include <Field/FieldSystemActor.h>
 #include "MirrorRoomCtrl.h"
 #include "Weapon.generated.h"
 
 UCLASS()
-class PROJECTID_API AWeapon : public AActor
+class PROJECTID_API AWeapon : public AAYU_itemPawn
 {
 	GENERATED_BODY()
 	
