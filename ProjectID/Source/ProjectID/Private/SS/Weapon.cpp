@@ -38,25 +38,27 @@ void AWeapon::Tick(float DeltaTime)
 
 void AWeapon::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	
-	if (!gameEnd)
+	if (!Cast<ATestCharacter>(OtherActor))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("sibal"));
-
-		auto destructMirror = Cast<ADestrutibleMirror>(OtherActor);
-		if (destructMirror)
+		if (!gameEnd)
 		{
-			destructMirror->bIsFractured = true;
-		}
-		if (mirrorCtrl->RemainDestructibleMirrorCheck())
-		{
-			UE_LOG(LogTemp, Warning, TEXT("wlfkdgksp"));
-			gameEnd = true;
-			mirrorCtrl->nextLevel = true;
-		}
+			UE_LOG(LogTemp, Warning, TEXT("sibal"));
 
-		GetWorld()->SpawnActor<AFieldSystemActor>(masterField, weaponCollComp->GetComponentTransform());
-	}
-	
+			auto destructMirror = Cast<ADestrutibleMirror>(OtherActor);
+			if (destructMirror)
+			{
+				destructMirror->bIsFractured = true;
+			}
+			if (mirrorCtrl->RemainDestructibleMirrorCheck())
+			{
+				UE_LOG(LogTemp, Warning, TEXT("wlfkdgksp"));
+				gameEnd = true;
+				mirrorCtrl->nextLevel = true;
+			}
+
+			GetWorld()->SpawnActor<AFieldSystemActor>(masterField, weaponCollComp->GetComponentTransform());
+		}
+	}	
+
 }
 

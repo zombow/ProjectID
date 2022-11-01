@@ -42,7 +42,7 @@ void AMirrorRoomCtrl::Tick(float DeltaTime)
 
 	// 보스전 구역 입장 시 거울 올라가는 효과
 	currentTime += DeltaTime;
-	if (!bisCharacterReached)
+	if (bisCharacterReached)
 	{
 		if (currentTime > elapsedTime && i < mirrors.Num())
 		{
