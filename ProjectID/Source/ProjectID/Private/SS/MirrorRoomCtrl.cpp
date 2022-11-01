@@ -29,8 +29,9 @@ void AMirrorRoomCtrl::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMirror::StaticClass(), mirrors);
-	
+	//UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMirror::StaticClass(), mirrors);
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), "Mirrors", mirrors);
+
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), destMirror, destructMirrors);
 }
 
@@ -41,14 +42,22 @@ void AMirrorRoomCtrl::Tick(float DeltaTime)
 
 	// 보스전 구역 입장 시 거울 올라가는 효과
 	currentTime += DeltaTime;
-	if (bisCharacterReached)
+	if (!bisCharacterReached)
 	{
 		if (currentTime > elapsedTime && i < mirrors.Num())
 		{
-			auto tempMirror = Cast<AMirror>(mirrors[i]);
-			tempMirror->bCombatStart = true;
-			i++;
-			currentTime = 0.f;
+			if (auto tempMirror = Cast<AMirror>(mirrors[i]))
+			{
+				tempMirror->bCombatStart = true;
+				i++;
+				currentTime = 0.f;
+			}
+			else if (auto tempDestructMirror = Cast<ADestrutibleMirror>(mirrors[i]))
+			{
+				tempDestructMirror->bCombatStart = true;
+				i++;
+				currentTime = 0.f;
+			}
 		}
 	}
 
