@@ -69,6 +69,8 @@ public:
 		void OverlapPropsBegin();
 	UFUNCTION(BlueprintImplementableEvent)
 		void OverlapPropsEnd();
+	UFUNCTION(BlueprintImplementableEvent)
+		void FallSleep();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();

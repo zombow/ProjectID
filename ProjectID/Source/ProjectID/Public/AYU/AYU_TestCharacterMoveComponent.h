@@ -27,11 +27,11 @@ public:
 	bool isCrouch; //플레이어 앉기 상태 속성
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float crouch_Speed = 300;
+		float crouch_Speed = 150;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float walk_Speed = 500;
+		float walk_Speed = 250;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		float run_Speed = 800;
+		float run_Speed = 350;
 
 	UPROPERTY()
 		class UCharacterMovementComponent* myMovementComp;

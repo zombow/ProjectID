@@ -91,7 +91,6 @@ void UAYU_TestCharacterInterComponent::OnAttackPressed() // mouse left 공격 키를
 	if ((holding_prop != nullptr) && holding_prop->ActorHasTag(weapon_tag_name))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Attack!"));
-		holding_prop->SetActorEnableCollision(true);
 		isattack = true;
 		me->attackorderoder();
 		auto animinst = Cast<UAYU_female_anim>(me->GetMesh()->GetAnimInstance());
@@ -103,7 +102,6 @@ void UAYU_TestCharacterInterComponent::OnAttackRelessed() // mouse right 공격키 
 	if ((holding_prop != nullptr) && holding_prop->ActorHasTag(weapon_tag_name))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Relessed"));
-		holding_prop->SetActorEnableCollision(false);
 	}
 }
 

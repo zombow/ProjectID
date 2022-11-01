@@ -68,6 +68,23 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			//me->OnItemFinished("key");//리무브하면 인벤토리에 온전한 일기장 추가
 		}
 	}
+	else if (items->ActorHasTag(sleep_Props_tags))
+	{
+		if (me->InterectComp->holding_prop->ActorHasTag(sleep_Props_tags))
+		{
+			me->InterectComp->holding_prop->Destroy();
+			me->InterectComp->holding_prop = nullptr;
+		}
+		sleepprops++;
+		inventory.Remove(items);
+		items->Destroy();
+		if (sleepprops == 2)
+		{
+			inventory.Remove(items);
+			items->Destroy();
+			me->FallSleep(); // 수면제, 술을 다마신뒤호출할 이벤트
+		}
+	}
 }
 
 void UAYU_TestCharacterinvenComponent::RemoveInventory(AActor* items) // 인벤토리 제거 함수 호출시
