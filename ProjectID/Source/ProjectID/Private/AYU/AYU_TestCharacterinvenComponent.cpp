@@ -60,7 +60,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 
 			FActorSpawnParameters testParam;
 			testParam.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-			AAYU_itemPawn* testA = GetWorld()->SpawnActor<AAYU_itemPawn>(finished_journals, me->armComp_transform->GetComponentTransform() ,testParam);
+			AAYU_itemPawn* testA = GetWorld()->SpawnActor<AAYU_itemPawn>(finished_journals, me->armComp_transform->GetComponentTransform(), testParam);
 			testA->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 			testA->SetActorEnableCollision(false);
 			testA->SetActorHiddenInGame(true);
@@ -85,7 +85,35 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			me->FallSleep(); // 수면제, 술을 다마신뒤호출할 이벤트
 		}
 	}
-	
+	if (items->ActorHasTag(key_tags)) // 아이템이 key관련 태그가 있다면
+	{
+		key++; // key을 세는 변수 ++
+		if (key == 2)
+		{
+			if (me->InterectComp->holding_prop->ActorHasTag(key_tags))
+			{
+				me->InterectComp->holding_prop->Destroy();
+				me->InterectComp->holding_prop = nullptr;
+			}
+			for (int i = 0; i < inventory.Num(); i++)
+			{
+				if (inventory[i]->ActorHasTag(key_tags))
+				{
+					inventory[i]->Destroy();
+					RemoveInventory(inventory[i]);
+					i--;
+				}
+			}
+
+			FActorSpawnParameters testParam;
+			testParam.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+			AAYU_itemPawn* testA = GetWorld()->SpawnActor<AAYU_itemPawn>(finished_key, me->armComp_transform->GetComponentTransform(), testParam);
+			testA->AttachToComponent(me->armComp_transform, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+			testA->SetActorEnableCollision(false);
+			testA->SetActorHiddenInGame(true);
+			AddInventory(testA);
+		}
+	}
 }
 
 void UAYU_TestCharacterinvenComponent::RemoveInventory(AActor* items) // 인벤토리 제거 함수 호출시
