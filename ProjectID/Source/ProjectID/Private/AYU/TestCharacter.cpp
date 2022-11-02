@@ -55,6 +55,7 @@ ATestCharacter::ATestCharacter()
 void ATestCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	myCamera_manager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
 }
 
 // Called every frame

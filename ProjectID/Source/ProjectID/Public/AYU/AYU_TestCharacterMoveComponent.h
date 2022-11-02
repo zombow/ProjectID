@@ -33,6 +33,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float run_Speed = 300;
 
+
 	UPROPERTY()
 		class UCharacterMovementComponent* myMovementComp;
 

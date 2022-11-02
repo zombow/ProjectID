@@ -55,6 +55,12 @@ public:
 		class UAYU_TestCharacterinvenComponent* InventoryComp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UCineCameraComponent* myCameraComp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TSubclassOf<UCameraShakeBase> camera_Shake_walk;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TSubclassOf<UCameraShakeBase> camera_Shake_attack;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TObjectPtr<APlayerCameraManager> myCamera_manager;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int state = 0;
