@@ -68,7 +68,7 @@ void AMirrorRoomCtrl::Tick(float DeltaTime)
 	}
 
 	// 시간 경과 시 레벨 전환
-	if (levelOpenTime > 3)
+	if (levelOpenTime > 5)
 	{
 		UGameplayStatics::OpenLevel(GetWorld(), FName(openLevelName));
 	}
