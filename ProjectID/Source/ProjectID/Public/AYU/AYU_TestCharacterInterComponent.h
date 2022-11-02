@@ -64,7 +64,7 @@ public :
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TSubclassOf<AWorldLightCtrl> worldLightCtrl;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	AActor* dirLock;
+		AActor* dirLock;
 
 
 	virtual void BeginPlay() override;
