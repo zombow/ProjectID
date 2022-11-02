@@ -79,6 +79,8 @@ public:
 		void FallSleep();
 	UFUNCTION(BlueprintImplementableEvent)
 		void GetRing();
+	UFUNCTION(BlueprintImplementableEvent)
+		void InteractPress();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void candle_LightOn();
