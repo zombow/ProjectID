@@ -50,5 +50,4 @@ Session.vim
 # Visual Studio
 .vs
 ProjectID/Content/SoundFile/BGM.uasset
-ProjectID/Content/Movies/TVMediaSource.uasset
-ProjectID/Content/Movies/TVNarationSource.uasset
+
