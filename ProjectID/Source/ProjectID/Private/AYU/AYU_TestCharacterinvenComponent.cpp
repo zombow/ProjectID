@@ -93,7 +93,7 @@ void UAYU_TestCharacterinvenComponent::AddInventory(AActor* items)
 			if (me->InterectComp->holding_prop->ActorHasTag(key_tags))
 			{
 				me->InterectComp->holding_prop->Destroy();
-				me->InterectComp->holding_prop = nullptr;
+				me->InterectComp->holding_prop = nullptr; 
 			}
 			for (int i = 0; i < inventory.Num(); i++)
 			{
