@@ -64,7 +64,6 @@ void UAYU_TestCharacterInterComponent::PlayerInputBinding(UInputComponent* Playe
 
 void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E' 눌렀을때
 {
-	me->InteractPress();
 	if ((mostnearitem != nullptr) && mostnearitem->ActorHasTag(prop_tag_name)) //mostnearitem 이 prop이라면
 	{
 		TryAddinventory();
@@ -79,6 +78,7 @@ void UAYU_TestCharacterInterComponent::OnActionInteractPressed() //인터렉트키 'E
 		bviews = (!bviews);
 		me->OnInteraction(bviews);
 	}
+	me->InteractPress();
 }
 
 

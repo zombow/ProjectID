@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-GamepadUMGPlugin.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\78h\OneDrive\Documents\Unreal Projects\UE4GamepadUMG-master\Intermediate\Build\Win64\GamepadUMGEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\78h\OneDrive\Documents\Unreal Projects\UE4GamepadUMG-master\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp.obj"
+"C:\Users\78h\OneDrive\Documents\Unreal Projects\UE4GamepadUMG-master\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.gen.cpp.obj"
+"C:\Users\78h\OneDrive\Documents\Unreal Projects\UE4GamepadUMG-master\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Default.rc2.res"
+/OUT:"C:\Users\78h\OneDrive\Documents\Unreal Projects\UE4GamepadUMG-master\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\UnrealEditor-GamepadUMGPlugin.lib"

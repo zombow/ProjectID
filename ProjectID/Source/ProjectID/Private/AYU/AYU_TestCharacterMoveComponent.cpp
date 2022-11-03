@@ -40,6 +40,8 @@ void UAYU_TestCharacterMoveComponent::PlayerInputBinding(UInputComponent* Player
 
 	PlayerInputComponent->BindAxis(TEXT("Turn Right / Left Mouse"), this, &UAYU_TestCharacterMoveComponent::OnAxisLookUp);
 	PlayerInputComponent->BindAxis(TEXT("Look Up / Down Mouse"), this, &UAYU_TestCharacterMoveComponent::OnAxisTurn);
+	PlayerInputComponent->BindAxis(TEXT("Turn Right / Left Gamepad"), this, &UAYU_TestCharacterMoveComponent::OnAxisLookUp);
+	PlayerInputComponent->BindAxis(TEXT("Look Up / Down Gamepad"), this, &UAYU_TestCharacterMoveComponent::OnAxisTurn);
 
 	PlayerInputComponent->BindAction(TEXT("Run"), IE_Pressed, this, &UAYU_TestCharacterMoveComponent::OnActionRunPressed);
 	PlayerInputComponent->BindAction(TEXT("Run"), IE_Released, this, &UAYU_TestCharacterMoveComponent::OnActionRunReleased);
