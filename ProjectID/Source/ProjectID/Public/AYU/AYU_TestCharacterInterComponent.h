@@ -40,7 +40,7 @@ public :
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		AAYU_itemPawn* mostnearitem; //가장 가까운 props
 
-	bool bviews = true;
+	bool bviews = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool isattack = false;
 
