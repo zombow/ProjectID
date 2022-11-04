@@ -1,6 +1,6 @@
-"C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp"
+C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp
 /I .
-/I "C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Source\GamepadUMGPlugin\Private"
+/I C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Source\GamepadUMGPlugin\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Slate
 /I Runtime
 /I Runtime\Slate\Public
@@ -252,9 +252,9 @@
 /I Runtime\MovieSceneTracks\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\PropertyPath
 /I Runtime\PropertyPath\Public
-/I "C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Inc\GamepadUMGPlugin"
-/I "C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Source"
-/I "C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Source\GamepadUMGPlugin\Public"
+/I C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Inc\GamepadUMGPlugin
+/I C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Source
+/I C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Source\GamepadUMGPlugin\Public
 /I ThirdParty\mimalloc\include
 /I ThirdParty\LibTiff\Source\Win64
 /I ThirdParty\LibTiff\Source
@@ -269,18 +269,18 @@
 /I ThirdParty\PhysX3\PhysX_3.4\Include\common
 /I ThirdParty\PhysX3\PhysX_3.4\Include\extensions
 /I ThirdParty\PhysX3\PhysX_3.4\Include\geometry
-/I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-/FI"C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Intermediate\Build\Win64\ProjectIDEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/FI"C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Definitions.GamepadUMGPlugin.h"
-/Yu"C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Intermediate\Build\Win64\ProjectIDEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Intermediate\Build\Win64\ProjectIDEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-/Fo"C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp.obj"
-/sourceDependencies "C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp.json"
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE"
+/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8.1\include\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"
+/FI"C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Intermediate\Build\Win64\ProjectIDEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/FI"C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Definitions.GamepadUMGPlugin.h"
+/Yu"C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Intermediate\Build\Win64\ProjectIDEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Intermediate\Build\Win64\ProjectIDEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/Fo"C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp.obj"
+/sourceDependencies C:\Users\UserK\Documents\GitHub\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Module.GamepadUMGPlugin.cpp.json
 /Zc:inline
 /nologo
 /Oi
