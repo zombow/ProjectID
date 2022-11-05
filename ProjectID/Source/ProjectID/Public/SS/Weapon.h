@@ -43,4 +43,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool gameEnd = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class ADestrutibleMirror* destructMirror;
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void PlayMirrorDestroySound();
 };
