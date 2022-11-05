@@ -36,5 +36,11 @@ public:
 	bool bIsFractured = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool playOnce = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UGeometryCollectionComponent* tempGCC;
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void PlayDestructMirrorRisingSound();
 };

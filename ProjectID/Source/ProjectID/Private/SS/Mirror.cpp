@@ -33,6 +33,13 @@ void AMirror::Tick(float DeltaTime)
 		{
 			SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, FMath::Lerp(-130, 160, lerpAlpha)));
 		}
+
+		if (!playOnce)
+		{
+			PlayMirrorRisingSound();
+
+			playOnce = true;
+		}
 	}
 }
 

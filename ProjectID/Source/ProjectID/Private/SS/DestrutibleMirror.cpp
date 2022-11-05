@@ -36,5 +36,12 @@ void ADestrutibleMirror::Tick(float DeltaTime)
 			tempGCC->SetSimulatePhysics(true);
 			bCombatStart = false;
 		}
+
+		if (!playOnce)
+		{
+			PlayDestructMirrorRisingSound();
+
+			playOnce = true;
+		}
 	}
 }

@@ -32,4 +32,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float lerpAlpha = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool playOnce = false;
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void PlayMirrorRisingSound();
 };
