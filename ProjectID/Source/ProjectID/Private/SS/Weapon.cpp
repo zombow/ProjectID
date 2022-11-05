@@ -44,10 +44,11 @@ void AWeapon::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 		{
 			UE_LOG(LogTemp, Warning, TEXT("sibal"));
 
-			auto destructMirror = Cast<ADestrutibleMirror>(OtherActor);
+			destructMirror = Cast<ADestrutibleMirror>(OtherActor);
 			if (destructMirror)
 			{
 				destructMirror->bIsFractured = true;
+				PlayMirrorDestroySound();
 			}
 			if (mirrorCtrl->RemainDestructibleMirrorCheck())
 			{
