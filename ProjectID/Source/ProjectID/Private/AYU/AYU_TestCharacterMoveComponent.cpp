@@ -24,7 +24,7 @@ void UAYU_TestCharacterMoveComponent::TickComponent(float DeltaTime, ELevelTick 
 	dir = FTransform(me->GetControlRotation()).TransformVector(dir); //player 이동방향
 	dir.Z = 0;
 	dir.Normalize();
-	if (dir != FVector::ZeroVector)
+	if ((me->GetVelocity() != FVector::ZeroVector ) && (dir != FVector::ZeroVector))
 	{
 		me->myCamera_manager->StartCameraShake(me->camera_Shake_walk);
 	}
