@@ -29,7 +29,7 @@ void ADestrutibleMirror::Tick(float DeltaTime)
 		lerpAlpha += 0.03;
 		if (lerpAlpha < 1)
 		{
-			SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, FMath::Lerp(-130, 160, lerpAlpha)));
+			SetActorLocation(FVector(GetActorLocation().X, GetActorLocation().Y, FMath::Lerp(-130, 131, lerpAlpha)));
 		}
 		else
 		{
