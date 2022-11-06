@@ -6,6 +6,7 @@
 #include "SS/DestrutibleMirror.h"
 #include <Kismet/GameplayStatics.h>
 #include "AYU/TestCharacter.h"
+#include <Components/CapsuleComponent.h>
 
 // Sets default values
 AWeapon::AWeapon()
@@ -16,10 +17,17 @@ AWeapon::AWeapon()
 	weaponMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("weaponMeshComp"));
 	SetRootComponent(weaponMeshComp);
 
+	weaponCapComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("weaponCapComp"));
+	weaponCapComp->SetupAttachment(RootComponent);
+
+	weaponCapComp->OnComponentBeginOverlap.AddDynamic(this, &AWeapon::OnOverlapBegin);
+
+	/*/
 	weaponCollComp = CreateDefaultSubobject<USphereComponent>(TEXT("weaponCollComp"));
 	weaponCollComp->SetupAttachment(RootComponent);
 
 	weaponCollComp->OnComponentBeginOverlap.AddDynamic(this, &AWeapon::OnOverlapBegin);
+	//*/
 }
 
 // Called when the game starts or when spawned
@@ -57,7 +65,7 @@ void AWeapon::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AA
 				mirrorCtrl->nextLevel = true;
 			}
 
-			GetWorld()->SpawnActor<AFieldSystemActor>(masterField, weaponCollComp->GetComponentTransform());
+			GetWorld()->SpawnActor<AFieldSystemActor>(masterField, weaponCapComp->GetComponentTransform());
 		}
 	}	
 
