@@ -61,7 +61,9 @@
 /DBUILT_FROM_CHANGELIST=20979098
 /DBUILD_VERSION=++UE5+Release-5.0-CL-20979098
 /DBUILD_ICON_FILE_NAME="\"..\\Build\\Windows\\Resources\\Default.ico\""
+/DPROJECT_COMPANY_NAME=Dajung
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
+/DPROJECT_PRODUCT_NAME=TheCrowdedRoom
 /DPROJECT_PRODUCT_IDENTIFIER=ProjectID
 /fo "C:\Users\78h\OneDrive\Documents\Unreal Projects\ProjectID\ProjectID\Plugins\GamepadUMGPlugin\Intermediate\Build\Win64\UnrealEditor\Development\GamepadUMGPlugin\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"
