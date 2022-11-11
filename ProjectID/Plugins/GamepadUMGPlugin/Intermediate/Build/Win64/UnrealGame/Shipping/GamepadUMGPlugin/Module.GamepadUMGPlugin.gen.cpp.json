@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\intermediate\\build\\win64\\unrealgame\\shipping\\gamepadumgplugin\\module.gamepadumgplugin.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\intermediate\\build\\win64\\projectid\\shipping\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\intermediate\\build\\win64\\unrealgame\\shipping\\gamepadumgplugin\\definitions.gamepadumgplugin.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\intermediate\\build\\win64\\unrealgame\\inc\\gamepadumgplugin\\gamepadcursorsettings.gen.cpp",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\source\\gamepadumgplugin\\public\\gamepadcursorsettings.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\intermediate\\build\\win64\\unrealgame\\inc\\gamepadumgplugin\\gamepadcursorsettings.generated.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\intermediate\\build\\win64\\unrealgame\\inc\\gamepadumgplugin\\gamepadumgplugin.init.gen.cpp",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\intermediate\\build\\win64\\unrealgame\\inc\\gamepadumgplugin\\virtualcursorfunctionlibrary.gen.cpp",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\source\\gamepadumgplugin\\public\\virtualcursorfunctionlibrary.h",
+            "c:\\users\\78h\\onedrive\\documents\\unreal projects\\projectid\\projectid\\plugins\\gamepadumgplugin\\intermediate\\build\\win64\\unrealgame\\inc\\gamepadumgplugin\\virtualcursorfunctionlibrary.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
