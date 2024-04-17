@@ -1,4 +1,4 @@
-# CrowdedRoom
+# The Crowded Room
 > 한국 콘텐츠 진흥원 프로그램 최종프로젝트 결과물
 
 ## 1. 게임기획
