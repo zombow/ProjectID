@@ -9,6 +9,8 @@
 ### 게임소개 영상
 [![](http://img.youtube.com/vi/j-u8MssPmLw/0.jpg)](https://www.youtube.com/watch?v=j-u8MssPmLw)
 
+> YouTubeLink : https://www.youtube.com/watch?v=j-u8MssPmLw
+
 >주인공은 살인마에게 납치당해 감금되었고 플레이어는 탈출하기위해  
 여러가지 아이템을 수집, 이동하며 살인마의 정체를 알게되는 스토리입니다.
 
